@@ -33,7 +33,7 @@ export default function InputComponent(props: propsType) {
               value={inputValue}
               onChange={(value) => setInputValue(value.target.value)}
             />
-            
+
             <div>
               <button
                 className={isFail ? "w-[50px] h-[20px] rounded-[5px] bg-[#999999] absolute inline-block ml-[50px] mt-[4px]" : "w-[50px] h-[20px] rounded-[5px] bg-[#3668EA] absolute inline-block ml-[50px] mt-[4px]"}
