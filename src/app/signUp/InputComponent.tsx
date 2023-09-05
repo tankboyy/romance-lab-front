@@ -11,8 +11,8 @@ type propsType = {
 
 export default function InputComponent(props: propsType) {
 	const [isFail, setIsFail] = useState(true);
-	const [isFail2, setIsFail2] = useState(true);
 	const [inputValue, setInputValue] = useState<string>("");
+	const [isFail2, setIsFail2] = useState(true);
 	const [input2Value, setInput2Value] = useState<string>("");
 	const [open, setOpen] = useState(false);
 
