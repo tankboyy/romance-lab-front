@@ -12,14 +12,14 @@ export default function Home(props: propsType) {
 	const [step, setStep] = useState<"회원가입" | "로그인">("회원가입");
 
 	return (
-		<div className="w-[375px] h-[667px] relative">
-			<div className="flex items-center justify-center text-[18px]">
+		<div className="max-w-[420px] max-h-[1000px] bg-white flex flex-col w-[100vh] h-[100vh]">
+			<div className="justify-center py-[10px] text-[18px] flex">
 				<p
 					onClick={() => setStep("회원가입")}
-					className={`${step === '회원가입' ? "mx-[10px] text-[#000] underline underline-offset-1" : "mx-[10px] text-[#AAA]"}`}>회원가입</p>
+					className={`${step === '회원가입' ? "px-[10px] text-[#000] underline underline-offset-1" : "px-[10px] text-[#AAA]"}`}>회원가입</p>
 				<p
 					onClick={() => setStep("로그인")}
-					className={`${step === '로그인' ? "mx-[10px] text-[#000] underline underline-offset-1" : "mx-[10px] text-[#AAA]"}`}>로그인</p>
+					className={`${step === '로그인' ? "px-[10px] text-[#000] underline underline-offset-1" : "px-[10px] text-[#AAA]"}`}>로그인</p>
 			</div>
 			{step === "회원가입" ?
 				<SignUpComponent/>

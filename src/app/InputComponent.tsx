@@ -5,7 +5,9 @@ type propsType = {
 	hide?: boolean
 	failText: string
 	successText: string
-	login?: boolean
+	auth?: boolean
+	placeHolder?: string
+
 };
 
 
@@ -30,7 +32,7 @@ export default function InputComponent(props: propsType) {
 
 
 	return (
-		<div className="flex flex-col px-[20px] justify-center">
+		<div className="flex flex-col justify-center">
 			<div className="pb-[40px]">
 				<label className="text-left text-[14px] pl-[10px] pb-[4px]">{props.title}</label>
 				<div
@@ -38,11 +40,12 @@ export default function InputComponent(props: propsType) {
 					<input
 						type={props.hide ? 'password' : ''}
 						value={inputValue}
-						className="w-5/6"
+						placeholder={props.placeHolder && props.placeHolder}
+						className="w-5/6 placeholder:text-[12px] placeholder:text-[#AAA]"
 						onChange={(value) => setInputValue(value.target.value)}
 					/>
 
-					{!props.login &&
+					{props.auth &&
               <div>
                   <button
                       className={isFail ? "w-[50px] h-[20px] rounded-[5px] bg-[#999999]" : "w-[50px] h-[20px] rounded-[5px] bg-[#3668EA]"}
@@ -59,7 +62,7 @@ export default function InputComponent(props: propsType) {
 						className={isFail ? "text-[#E84E4E] text-[12px]" : "text-[12px] text-[#3668EA]"}>{isFail ? props.failText : props.successText}</p>
 				</div>
 			</div>
-			{open && !props.login &&
+			{open && props.auth &&
           <div className=" pb-[40px]">
               <label className="text-left text-[14px] bottom-[8px] pl-[10px] pb-[4px]">인증번호</label>
               <div
