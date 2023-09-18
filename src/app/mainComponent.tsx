@@ -4,76 +4,88 @@ import loveImage from "../../public/main/love.png";
 import zeroImage from "../../public/main/0.png";
 import 언짢음 from "../../public/main/emotion/언짢음.png";
 import placeImage from "../../public/main/place.png";
+import wariImage from '../../public/main/wari.png';
 
 type propsType = {};
 
 export default function MainComponent(props: propsType) {
 	return (
 		<>
-			<div>
-				<div className="flex flex-col items-end justify-end text-[12px] pb-[20px]">
-					<div className="flex items-center">
+			<div className="w-full">
+				<div className="flex flex-col items-end justify-end pb-[40px]">
+					<div className="flex items-center text-[12px] font-bold">
 						<p>유저1</p>
-						<Image className="mx-1" alt="하트" src={loveImage}/>
+						<Image className="" alt="하트" src={loveImage}/>
 						<p>유저2</p>
 					</div>
-					<div className="flex items-center">
-						<p>연구를 시작한 지 </p>
-						<p className="font-medium text-[14px] mx-0.5">32</p>
-						<p>일 째</p>
+					<div className="flex items-center text-[12px] text-center relative">
+						<div>
+							<Image className="peer" src={wariImage} alt="위험해"/>
+							<div
+								className="invisible peer-hover:visible border-[#EE404C] w-[206px] h-[96px] border-[1px] border-solid mt-[4px] rounded-[5px] absolute right-0 bg-white">
+								<p className="text-left text-[11px] leading-[16px] p-[8px]">
+									연인과 정보가 연결되지 않았어요. <br/>
+									정보를 연결하면 연구결과를 함께 공유할 수 있어요.
+								</p>
+								<button
+									className="w-[190px] bg-[#3668EA] h-[24px] px-[8px] rounded-[5px] text-white text-[11px] font-bold leading-[16px]">
+									연결하러 가기
+								</button>
+							</div>
+						</div>
+						<p>
+							연구를 시작한 지 <em className="text-[14px] font-bold">32</em>일 째
+						</p>
 					</div>
 				</div>
-				<div className="border-black border-solid border-b-[1px] pb-[20px] mb-[10px]">
-					<div>
-						<p className="text-[18px] font-medium">연구 활성도</p>
-						<p className="text-[12px]">텍스트를 분석할 때마다 연구 활성도가 상승해요!</p>
+
+				<div className="border-black border-solid border-b-[1px] pb-[30px] mb-[20px]">
+					<div className="pb-[25px]">
+						<p className="text-[18px] font-bold pb-[6px]">연구 활성도</p>
+						<p className="text-[12px] leading-[16px]">텍스트를 분석할 때마다 연구 활성도가 상승해요!</p>
 					</div>
-					<div className="flex flex-col items-center mt-[25px]">
-						<Image className="mb-[15px]" alt="0%" src={zeroImage}/>
+					<div className="flex flex-col items-center">
+						<Image className="mb-[16px]" alt="0%" src={zeroImage}/>
 						<div className="flex flex-col items-center">
-							<p>이번 주의 연구 활성도는</p>
-							<div className="flex items-end">
-								<p className="font-medium text-[18px]">0%</p>
-								<p>에요!</p>
-							</div>
-							<p className="text-[#AAA] text-[11px]">조금만 더 분석하러 가 볼까요?</p>
-							<button className="m-[10px] bg-[#3668EA] rounded-[5px] w-[100px] h-[24px] text-[11px] text-[#FFF]">분석하러 가기
+							<p className="text-[13px] leading-[20px] text-center pb-[6px]">
+								이번 주의 연구 활성도는 <br/>
+								<em className="text-[16px] font-bold">0%</em>에요!
+							</p>
+							<em className="text-[#AAA] text-[11px] pb-[10px]">조금만 더 분석하러 가 볼까요?</em>
+							<button className="bg-[#3668EA] rounded-[5px] w-[100px] h-[24px] text-[11px] text-[#FFF]">분석하러 가기
 							</button>
 						</div>
 					</div>
 				</div>
-				<div className="border-black border-solid border-b-[1px] pb-[20px] mb-[10px]">
-					<div>
-						<p className="text-[18px] font-medium">연구 통계 - 감정</p>
-						<p className="text-[12px]">이번 주에 가장 많이 분석된 감정을 알 수 있어요.</p>
+				<div className="border-black border-solid border-b-[1px] pb-[30px] mb-[20px]">
+					<div className="pb-[30px]">
+						<p className="text-[18px] font-bold pb-[6px]">연구 통계 - 감정</p>
+						<p className="text-[12px] leading-[16px]">이번 주에 가장 많이 분석된 감정을 알 수 있어요.</p>
 					</div>
-					<div className="flex flex-col items-center mt-[25px]">
-						<Image className="mb-[15px]" alt="0%" src={언짢음}/>
+					<div className="flex flex-col items-center">
+						<Image className="pb-[18px]" alt="0%" src={언짢음}/>
 						<div className="flex flex-col items-center">
-							<p>이번 주의 가장 많이 분석된 감정은</p>
-							<div className="flex items-end">
-								<p className="font-medium text-[18px]">언짢음</p>
-								<p>이에요!</p>
-							</div>
-							<p className="text-[#AAA] text-[11px]">어떤 감정들이 분석됐는지 확인해볼까요?</p>
-							<button className="m-[10px] bg-[#3668EA] rounded-[5px] w-[100px] h-[24px] text-[11px] text-[#FFF]">타임라인 보기
+							<p className="text-[13px] leading-[20px] text-center pb-[6px]">
+								이번 주에 가장 많이 분석된 감정은<br/>
+								<em className="text-[16px] font-bold">언짢음</em>이에요!
+							</p>
+							<p className="text-[#AAA] text-[11px] pb-[10px]">어떤 감정들이 분석됐는지 확인해볼까요?</p>
+							<button className="bg-[#3668EA] rounded-[5px] w-[100px] h-[24px] text-[11px] text-[#FFF]">타임라인 보기
 							</button>
 						</div>
 					</div>
 				</div>
 				<div>
-					<div>
-						<p className="text-[18px] font-medium">연구 통계 - 장소</p>
-						<p className="text-[12px]">지금까지 등록했던 장소들을 볼 수 있어요.</p>
+					<div className="pb-[30px]">
+						<p className="text-[18px] font-bold pb-[6px]">연구 통계 - 장소</p>
+						<p className="text-[12px] leading-[16px]">지금까지 등록했던 장소들을 볼 수 있어요.</p>
 					</div>
-					<div className="flex flex-col items-center mt-[25px]">
-						<Image className="mb-[15px]" alt="0%" src={placeImage}/>
+					<div className="flex flex-col items-center">
+						<Image className="mb-[18px]" alt="0%" src={placeImage}/>
 						<div className="flex flex-col items-center">
-							<p>우리가 어떤 장소를 찾아갔는지</p>
-							<div className="flex items-end">
-								<p>확인해볼까요?</p>
-							</div>
-							<button className="m-[10px] bg-[#3668EA] rounded-[5px] w-[100px] h-[24px] text-[11px] text-[#FFF]">타임라인 보기
+							<p className="text-[13px] leading-[20px] text-center pb-[10px]">우리가 어떤 장소를 찾아갔는지
+								<br/>확인해볼까요?</p>
+							<button className="bg-[#3668EA] rounded-[5px] w-[100px] h-[24px] text-[11px] text-[#FFF]">타임라인 보기
 							</button>
 						</div>
 					</div>

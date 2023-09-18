@@ -22,7 +22,7 @@ export default function Home() {
 			}
 			<div
 				className="border-t-[1px] p-0 border-[#E2E2E2] border-solid mx-auto fixed bottom-0 left-0 right-0 max-w-[420px] h-[50px] text-[11px] bg-white">
-				<div className="flex justify-between pt-[15px] px-4">
+				<div className="flex justify-between py-[17px] px-[20px] leading-[16px]">
 					<p className={nowTap === "메인페이지" ? "underline" : "text-[#AAA]"}
 						 onClick={(event) => setNowTap("메인페이지")}
 					>메인페이지</p>
