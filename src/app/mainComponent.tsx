@@ -40,12 +40,12 @@ export default function MainComponent(props: propsType) {
 				</div>
 
 				<div className="border-black border-solid border-b-[1px] pb-[30px] mb-[20px]">
-					<div className="pb-[25px]">
+					<div className="pb-[20px]">
 						<p className="text-[18px] font-bold pb-[6px]">연구 활성도</p>
 						<p className="text-[12px] leading-[16px]">텍스트를 분석할 때마다 연구 활성도가 상승해요!</p>
 					</div>
 					<div className="flex flex-col items-center">
-						<Image className="mb-[16px]" alt="0%" src={zeroImage}/>
+						<Image className="mb-[12px]" alt="0%" src={zeroImage}/>
 						<div className="flex flex-col items-center">
 							<p className="text-[13px] leading-[20px] text-center pb-[6px]">
 								이번 주의 연구 활성도는 <br/>

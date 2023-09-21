@@ -7,22 +7,22 @@ import localFont from "next/font/local";
 const fonts = localFont({
 	src: [
 		{
-			path: '../../public/fonts/NanumSquareL.ttf',
+			path: '../../public/fonts/NanumSquareL.otf',
 			weight: '100',
 			style: 'normal',
 		},
 		{
-			path: '../../public/fonts/NanumSquareR.ttf',
+			path: '../../public/fonts/NanumSquareR.otf',
 			weight: '400',
 			style: 'normal',
 		},
 		{
-			path: '../../public/fonts/NanumSquareB.ttf',
+			path: '../../public/fonts/NanumSquareB.otf',
 			weight: '700',
 			style: 'normal',
 		},
 		{
-			path: '../../public/fonts/NanumSquareEB.ttf',
+			path: '../../public/fonts/NanumSquareEB.otf',
 			weight: '900',
 			style: 'normal',
 		},

@@ -39,7 +39,7 @@ export default function Home(props: propsType) {
 			<div className="text-center py-[100px] flex flex-col justify-center items-center text-[20px] my-auto">
 				<Image className="mb-[20px]" alt="메인" src={loginImage}/>
 				<p className="text-[24px] pb-[10px] font-extrabold">애정연구소</p>
-				<p className="text-[16px]">더 깊고 풍부한 애정을 연구하다</p>
+				<p className="text-[16px] font-normal">더 깊고 풍부한 애정을 연구하다</p>
 			</div>
 			<div className="flex flex-col">
 				<div className="w-full px-[20px]">
