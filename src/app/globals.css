@@ -56,3 +56,23 @@ input[type=password] {
     font-family: "Roboto Light"
 }
 
+
+@layer compoenets {
+    .circle {
+        --p: 0;
+        background-color: darkgray;
+        width: 300px;
+        height: 300px;
+        display: grid;
+        place-content: center;
+        transform: scale(.5);
+        clip-path: circle(49%);
+        animation: p 10s steps(100) infinite;
+        color: HSL(calc(var(--p) * 2), 100%, 65%);
+    }
+
+    ::before, ::after {
+        grid-row: 1;
+        grid-column: 1;
+    }
+}

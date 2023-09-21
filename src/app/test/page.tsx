@@ -5,7 +5,12 @@ type propsType = {};
 export default function Page(props: propsType) {
 	return (
 		<div>
-			hi
+			<div className="">
+				<div className="circle">
+
+				</div>
+
+			</div>
 		</div>
 	);
 }
