@@ -26,7 +26,7 @@ export default function CompleteComponent(props: propsType) {
 				</p>
 			</div>
 			<TextInputComponent
-				readonly={true}
+				// readonly={true}
 				data="안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕"
 				title="분석된 텍스트" successText="" failText="" placeHolder="분석할 텍스트를 입력해주세요"/>
 			<div>

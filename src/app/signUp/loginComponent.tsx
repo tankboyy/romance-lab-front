@@ -16,7 +16,7 @@ export default function LoginComponent(props: propsType) {
 												failText="비밀번호가 맞지 않아요" type="password"
 												successText=""/>
 			</div>
-			<div className="flex justify-center p-[20px]">
+			<div className="flex justify-center pb-[20px]">
 				<button
 					className="w-full h-[40px] rounded-[5px] bg-[#3668EA] text-[#FFF] text-[12px]"
 					disabled={true}

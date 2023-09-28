@@ -34,7 +34,7 @@ export default function TimeLineComponent(props: propsType) {
 						</div>
 						<p className="space-y-[8px] w-full">
 							<em className="text-[12px] leading-[18px]">유저1 (나)님이 편지를 분석했어요.</em><br/>
-							<em className="text-[10px] text-[#AAA]">2023.09.07</em>
+							<em className="text-[11px] text-[#AAA]">2023.09.07</em>
 						</p>
 					</div>
 
@@ -46,8 +46,8 @@ export default function TimeLineComponent(props: propsType) {
 						<p className="space-y-[8px] w-full">
 							<em className="text-[12px]">유저2 (연인)님이 일기를 분석했어요.</em><br/>
 							<div className="justify-between flex">
-								<em className="text-[10px] text-[#AAA]">2023.09.07</em>
-								<em className="text-[10px] underline">편지템플릿 보기</em>
+								<em className="text-[11px] text-[#AAA]">2023.09.07</em>
+								<em className="text-[11px] underline">편지템플릿 보기</em>
 							</div>
 						</p>
 					</div>
@@ -58,8 +58,8 @@ export default function TimeLineComponent(props: propsType) {
 						<p className="space-y-[8px] w-full">
 							<em className="text-[12px]">유저2유저2유저2유저2 (연인)님이 가족모임기록을 분석했어요.</em><br/>
 							<div className="justify-between flex">
-								<em className="text-[10px] text-[#AAA]">2023.09.07</em>
-								<em className="text-[10px] underline">편지템플릿 보기</em>
+								<em className="text-[11px] text-[#AAA]">2023.09.07</em>
+								<em className="text-[11px] underline">편지템플릿 보기</em>
 							</div>
 						</p>
 					</div>
@@ -70,7 +70,7 @@ export default function TimeLineComponent(props: propsType) {
 						</div>
 						<p className="space-y-[8px] w-full">
 							<em className="text-[12px]">유저1 (나)님이 채팅를 분석했어요.</em><br/>
-							<em className="text-[10px] text-[#AAA]">2023.09.07</em>
+							<em className="text-[11px] text-[#AAA]">2023.09.07</em>
 						</p>
 					</div>
 					{/*<div className="flex py-[10px]">*/}
@@ -80,7 +80,7 @@ export default function TimeLineComponent(props: propsType) {
 						</div>
 						<p className="space-y-[8px] w-full">
 							<em className="text-[12px]">유저1 (나)님이 편지를 분석했어요.</em><br/>
-							<em className="text-[10px] text-[#AAA]">2023.09.07</em>
+							<em className="text-[11px] text-[#AAA]">2023.09.07</em>
 						</p>
 					</div>
 				</div>

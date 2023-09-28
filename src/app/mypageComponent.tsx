@@ -8,12 +8,12 @@ type propsType = {};
 export default function MypageComponent(props: propsType) {
 	return (
 		<div className="space-y-[80px]">
-			<div>
+			<div className="py-[74px]">
 				<div className="flex flex-col items-center pb-[62px]">
 					<em className="text-[12px]">우리가 사랑한지 <em className="text-[13px] font-bold">101</em>일 째</em>
 					<div className="flex items-center text-[16px] font-bold">
 						<p>유저1</p>
-						<Image className="" alt="하트" src={loveImage} width={36} height={36}/>
+						<Image className="" alt="하트" src="/main/love2.png" width={36} height={36}/>
 						<p>유저2</p>
 					</div>
 					<Image className="pb-[17px]" alt="메인" src={loginImage} width={88} height={88}/>

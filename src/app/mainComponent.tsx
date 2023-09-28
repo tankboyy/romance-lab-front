@@ -15,7 +15,7 @@ export default function MainComponent(props: propsType) {
 				<div className="flex flex-col items-end justify-end pb-[40px]">
 					<div className="flex items-center text-[12px] font-bold">
 						<p>유저1</p>
-						<Image className="" alt="하트" src={loveImage}/>
+						<Image className="" alt="하트" src={loveImage} width={24} height={24}/>
 						<p>유저2</p>
 					</div>
 					<div className="flex items-center text-[12px] text-center relative">

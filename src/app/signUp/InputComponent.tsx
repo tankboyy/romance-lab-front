@@ -37,7 +37,7 @@ export default function InputComponent(props: propsType) {
 					/>
 
 					{props.setAuth ?
-						<div className="absolute right-0 pt-[5px]">
+						<div className="absolute right-0 pt-[1px]">
 							<button
 								className={isFail ? "w-[50px] h-[20px] rounded-[5px] bg-[#999999]" : "w-[50px] h-[20px] rounded-[5px] bg-[#3668EA]"}
 								disabled={isFail}
