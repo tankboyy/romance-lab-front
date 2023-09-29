@@ -26,6 +26,10 @@ export default function SelectComponent(props: propsType) {
 		setIsFail(() => !pattern.test(props.inputData.data));
 	}, [props.inputData.data]);
 
+	useEffect(() => {
+		if (!props.placeHolder) props.inputData.setData(props.list[0])
+	}, [])
+
 	const onClickLi = (e: any) => {
 		props.inputData.setData(e.target.innerText);
 		setOpen(false);

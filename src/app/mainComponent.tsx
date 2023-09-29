@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Image from "next/image";
 import loveImage from "../../public/main/love.png";
 import zeroImage from "../../public/main/0.png";
@@ -9,6 +9,7 @@ import wariImage from '../../public/main/wari.png';
 type propsType = {};
 
 export default function MainComponent(props: propsType) {
+	const [warning, setWarning] = useState(false);
 	return (
 		<>
 			<div className="w-full">
@@ -20,9 +21,11 @@ export default function MainComponent(props: propsType) {
 					</div>
 					<div className="flex items-center text-[12px] text-center relative">
 						<div>
-							<Image className="peer" src={wariImage} alt="위험해"/>
-							<div
-								className="invisible peer-hover:visible border-[#EE404C] w-[206px] h-[96px] border-[1px] border-solid mt-[4px] rounded-[5px] absolute right-0 bg-white">
+							<Image onClick={() => setWarning(prev => !prev)} className="peer cursor-pointer" src={wariImage} alt="위험해"/>
+							{
+								warning &&
+								<div
+								className="border-[#EE404C] w-[206px] h-[96px] border-[1px] border-solid mt-[4px] rounded-[5px] absolute right-0 bg-white shadow-[2px_2px_4px_rgba(0,0,0,0.05)]">
 								<p className="text-left text-[11px] leading-[16px] p-[8px]">
 									연인과 정보가 연결되지 않았어요. <br/>
 									정보를 연결하면 연구결과를 함께 공유할 수 있어요.
@@ -32,6 +35,7 @@ export default function MainComponent(props: propsType) {
 									연결하러 가기
 								</button>
 							</div>
+							}
 						</div>
 						<p>
 							연구를 시작한 지 <em className="text-[14px] font-bold">32</em>일 째

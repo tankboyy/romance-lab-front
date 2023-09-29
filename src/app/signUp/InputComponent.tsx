@@ -16,7 +16,7 @@ type propsType = {
 
 
 export default function InputComponent(props: propsType) {
-	const [isFail, setIsFail] = useState(true);
+	const [isFail, setIsFail] = useState(false);
 
 	useEffect(() => {
 		// const pattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -36,7 +36,7 @@ export default function InputComponent(props: propsType) {
 						onChange={(value) => props.inputData?.setData(value.target.value)}
 					/>
 
-					{props.setAuth ?
+					{props.setAuth && isFail ?
 						<div className="absolute right-0 pt-[1px]">
 							<button
 								className={isFail ? "w-[50px] h-[20px] rounded-[5px] bg-[#999999]" : "w-[50px] h-[20px] rounded-[5px] bg-[#3668EA]"}
