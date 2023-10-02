@@ -36,6 +36,7 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
 					className={fonts.className}
 		>
 		<Script src="https://developers.kakao.com/sdk/js/kakao.js"></Script>
+
 		<body
 			className="bg-[#f5f5f5] flex h-full justify-center items-center m-auto"
 		>
