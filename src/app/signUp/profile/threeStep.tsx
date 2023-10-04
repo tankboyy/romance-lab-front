@@ -2,6 +2,7 @@
 
 import React, {useState} from 'react';
 import InputComponent from "../InputComponent";
+import Image from "next/image";
 
 type propsType = {};
 
@@ -40,8 +41,26 @@ export default function ThreeStep(props: propsType) {
 							</div>
 						</div>
 					</div>
-					<InputComponent inputData={{data: date, setData: setDate}} failText="" successText="" title="연애 시작날짜"
-													placeHolder="여러분의 사랑이 시작된 날짜를 입력해주세요"/>
+					<div>
+						<div className="flex flex-col justify-center">
+							<div className="flex flex-col w-full">
+								<label className="text-left text-[14px] pl-[4px] pb-[10px]">연애 시작날짜</label>
+								<div className="flex relative pb-[22px]">
+									<input
+										type="date"
+										required
+										// aria-required={true}
+										data-placeholder="여러분의 사랑이 시작된 날짜를 입력해주세요"
+										className="w-full p-[10px] leading-3 h-[30px] focus:outline-none border-b-[1px] border-black border-solid text-[12px]"
+									/>
+									<div className="pl-[10px] pt-[10px] absolute bottom-0">
+										<p
+											className="text-[#E84E4E] text-[12px]">오늘보다 늦은 날짜는 선택할 수 없어요.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 			<div className="flex">
