@@ -27,6 +27,7 @@ export default function InputComponent(props: propsType) {
 				<label className="text-left text-[14px] pl-[4px] pb-[10px]">{props.title}</label>
 				<div className="flex">
 					<textarea
+						id="customTextArea"
 						placeholder={props.placeHolder && props.placeHolder}
 						value={props.inputData?.data}
 						className="scroll-pl-14 w-full p-[10px] leading-[22px] h-[400px] focus:outline-none border-[1px] border-[#AAA] rounded-[5px] border-solid text-[12px]"

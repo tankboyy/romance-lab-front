@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import InputComponent from "./InputComponent";
-import PasswordComponent from "./passwordComponent";
+import InputComponent from "../../signUp/InputComponent";
+import PasswordComponent from "../../signUp/passwordComponent";
 
 type propsType = {};
 
@@ -18,10 +18,10 @@ export default function LoginComponent(props: propsType) {
 			</div>
 			<div className="flex justify-center pb-[20px]">
 				<button
-					className="w-full h-[40px] rounded-[5px] bg-[#3668EA] text-[#FFF] text-[12px]"
+					className="w-full h-[40px] font-bold rounded-[5px] bg-[#3668EA] text-[#FFF] text-[12px]"
 					disabled={true}
 				>
-					<p> 가입 완료하기</p>
+					<p>로그인하기</p>
 				</button>
 			</div>
 		</div>

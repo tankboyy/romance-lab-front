@@ -94,7 +94,21 @@ input[type='date']::-webkit-calendar-picker-indicator {
 
 
 @layer compoenets {
+    #customTextArea::-webkit-scrollbar {
+        width: 18px;
+        height: 100px;
+        background-color: white;
+    }
 
+    #customTextArea::-webkit-scrollbar-thumb {
+        background: #AAA;
+        background-clip: padding-box;
+        border: 8px solid transparent;
+    }
+
+    #customTextArea::-webkit-scrollbar-track {
+        background: white;
+    }
 
     .circle {
         --p: 0;

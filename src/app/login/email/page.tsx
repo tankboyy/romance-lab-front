@@ -1,14 +1,14 @@
-"use client";
+'use client';
 
 import React, {useState} from 'react';
-import LoginComponent from "../login/email/loginComponent";
-import SignUpComponent from "./signUPComponent";
 import Image from "next/image";
 import arrow from "/public/main/arrow3.png";
+import SignUpComponent from "./signUPComponent";
+import LoginComponent from "./loginComponent";
 
 type propsType = {};
 
-export default function Home(props: propsType) {
+export default function Page(props: propsType) {
 	const [step, setStep] = useState<"회원가입" | "로그인">("회원가입");
 
 	return (
