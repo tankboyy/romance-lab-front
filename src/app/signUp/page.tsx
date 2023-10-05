@@ -1,10 +1,10 @@
 "use client";
 
 import React, {useState} from 'react';
-import InputComponent from "./InputComponent";
-import PasswordComponent from "./passwordComponent";
 import LoginComponent from "./loginComponent";
 import SignUpComponent from "./signUPComponent";
+import Image from "next/image";
+import arrow from "/public/main/arrow3.png";
 
 type propsType = {};
 
@@ -12,7 +12,10 @@ export default function Home(props: propsType) {
 	const [step, setStep] = useState<"회원가입" | "로그인">("회원가입");
 
 	return (
-		<div className="max-w-[420px] max-h-[1000px] bg-white flex flex-col w-[100vh] h-[100vh] px-[20px]">
+		<div className="max-w-[420px] max-h-[1000px] bg-white flex flex-col w-[100vh] h-[100vh] p-[20px]">
+			<div className="mb-[20px]">
+				<Image alt="화살표" src={arrow}/>
+			</div>
 			<div className="justify-center text-[18px] font-bold flex space-x-[20px] pb-[40px]">
 				<a
 					onClick={() => setStep("회원가입")}

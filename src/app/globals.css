@@ -52,9 +52,6 @@ table {
     border-spacing: 0;
 }
 
-input[type=password] {
-    font-family: "NanumSquare Light"
-}
 
 input[type='date']::before {
     content: attr(data-placeholder);
@@ -83,6 +80,17 @@ input[type='date']::-webkit-calendar-picker-indicator {
     color: transparent;
     cursor: pointer
 }
+
+@font-face {
+    font-family: "NanumSquareR";
+    src: url("/public/fonts/NanumSquareR.otf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*input[type='password'] {*/
+/*    font-family: "sans-serif"*/
+/*}*/
 
 
 @layer compoenets {

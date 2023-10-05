@@ -32,7 +32,7 @@ export default function InputComponent(props: propsType) {
 						placeholder={props.placeHolder && props.placeHolder}
 						type={props.type ? props.type : 'text'}
 						value={props.inputData?.data}
-						className="w-full p-[10px] leading-3 h-[30px] focus:outline-none border-b-[1px] border-black border-solid text-[12px]"
+						className="w-full p-[10px] leading-3 h-[30px] font-nanum focus:outline-none border-b-[1px] border-black border-solid text-[12px]"
 						onChange={(value) => props.inputData?.setData(value.target.value)}
 					/>
 
