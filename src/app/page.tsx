@@ -4,7 +4,7 @@ import Image from 'next/image';
 import React, {useState} from "react";
 import {TnowTap} from "../../public/types/main/types";
 import MainComponent from "./mainComponent";
-import AnalyzeComponent from "./analyzeComponent";
+import AnalyzeComponent from "./analyze/analyzeComponent";
 import TimeLineComponent from "./timeLineComponent";
 import MypageComponent from "./mypageComponent";
 

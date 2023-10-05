@@ -96,7 +96,6 @@ input[type='date']::-webkit-calendar-picker-indicator {
 @layer compoenets {
     #customTextArea::-webkit-scrollbar {
         width: 18px;
-        height: 100px;
         background-color: white;
     }
 
@@ -108,6 +107,8 @@ input[type='date']::-webkit-calendar-picker-indicator {
 
     #customTextArea::-webkit-scrollbar-track {
         background: white;
+        border: 8px solid transparent;
+
     }
 
     .circle {

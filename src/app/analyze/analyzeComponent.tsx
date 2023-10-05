@@ -1,8 +1,7 @@
 import React, {useRef, useState} from 'react';
-import InputComponent from "./InputComponent";
-import SelectComponent from "./selectComponent";
-import TextInputComponent from "./textInputComponent";
-import CompleteComponent from "./completeComponent";
+import InputComponent from "../InputComponent";
+import SelectComponent from "../selectComponent";
+import TextInputComponent from "../textInputComponent";
 
 type propsType = {};
 
@@ -54,7 +53,6 @@ export default function AnalyzeComponent(props: propsType) {
 			<button className="h-[40px] bg-[#3668EA] text-white text-[12px] w-full rounded-[5px]">
 				<p>제출하기</p>
 			</button>
-			{/*<CompleteComponent/>*/}
 		</div>
 	);
 }

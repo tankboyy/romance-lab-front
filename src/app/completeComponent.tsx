@@ -25,10 +25,10 @@ export default function CompleteComponent(props: propsType) {
 					</a>
 				</p>
 			</div>
-			<TextInputComponent
-				// readonly={true}
-				data="안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕"
-				title="분석된 텍스트" successText="" failText="" placeHolder="분석할 텍스트를 입력해주세요"/>
+			{/*<TextInputComponent*/}
+			{/*	// readonly={true}*/}
+			{/*	data="안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕"*/}
+			{/*	title="분석된 텍스트" successText="" failText="" placeHolder="분석할 텍스트를 입력해주세요"/>*/}
 			<div>
 				<p className="pb-[5px] text-[14px] border-solid border-black border-b-[1px] mb-[15px]">분석 결과</p>
 				<p className="pb-[5px]">감정</p>
