@@ -21,20 +21,21 @@ export default function MainComponent(props: propsType) {
 					</div>
 					<div className="flex items-center text-[12px] text-center relative">
 						<div>
-							<Image onClick={() => setWarning(prev => !prev)} className="peer cursor-pointer" src={wariImage} alt="위험해"/>
+							<Image onClick={() => setWarning(prev => !prev)} className="peer cursor-pointer" src={wariImage}
+										 alt="위험해"/>
 							{
 								warning &&
-								<div
-								className="border-[#EE404C] w-[206px] h-[96px] border-[1px] border-solid mt-[4px] rounded-[5px] absolute right-0 bg-white shadow-[2px_2px_4px_rgba(0,0,0,0.05)]">
-								<p className="text-left text-[11px] leading-[16px] p-[8px]">
-									연인과 정보가 연결되지 않았어요. <br/>
-									정보를 연결하면 연구결과를 함께 공유할 수 있어요.
-								</p>
-								<button
-									className="w-[190px] bg-[#3668EA] h-[24px] px-[8px] rounded-[5px] text-white text-[11px] font-bold leading-[16px]">
-									연결하러 가기
-								</button>
-							</div>
+                  <div
+                      className="border-[#EE404C] w-[206px] h-[96px] border-[1px] border-solid mt-[4px] rounded-[5px] absolute right-0 bg-white shadow-[2px_2px_4px_rgba(0,0,0,0.5)]">
+                      <p className="text-left text-[11px] leading-[16px] p-[8px]">
+                          연인과 정보가 연결되지 않았어요. <br/>
+                          정보를 연결하면 연구결과를 함께 공유할 수 있어요.
+                      </p>
+                      <button
+                          className="w-[190px] bg-[#3668EA] h-[24px] px-[8px] rounded-[5px] text-white text-[11px] font-bold leading-[16px]">
+                          연결하러 가기
+                      </button>
+                  </div>
 							}
 						</div>
 						<p>

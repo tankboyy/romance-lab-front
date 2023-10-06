@@ -88,11 +88,6 @@ input[type='date']::-webkit-calendar-picker-indicator {
     font-style: normal;
 }
 
-/*input[type='password'] {*/
-/*    font-family: "sans-serif"*/
-/*}*/
-
-
 @layer compoenets {
     #customTextArea::-webkit-scrollbar {
         width: 18px;

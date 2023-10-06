@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
-import InputComponent from "../../signUp/InputComponent";
-import PasswordComponent from "../../signUp/passwordComponent";
+import InputComponent from "../../../components/free/InputComponent";
 
 type propsType = {};
 
