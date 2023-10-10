@@ -1,11 +1,51 @@
-import React from 'react';
+'use client';
+
+import React, {useState} from 'react';
 import Image from "next/image";
 
 type propsType = {};
 
 export default function Page(props: propsType) {
+
+	const [modalOpen, setModalOpen] = useState(false);
+
+	const popup = () => {
+		setModalOpen(true);
+		document.body.style.overflow = "hidden";
+	};
+
+	const closePopup = () => {
+		setModalOpen(false);
+		document.body.style.overflow = "unset";
+	};
+
 	return (
 		<div className="max-w-[420px] max-h-max min-h-[100vh] bg-white flex flex-col p-[20px] pb-[50px] relative">
+			{
+				modalOpen &&
+          <div>
+              <div className="bg-[rgba(255,255,255,0.8)] fixed left-0 top-0 w-full h-full z-20 cursor-pointer"
+                   onClick={() => closePopup()}
+              >
+              </div>
+              <div
+                  className="bg-white z-30 w-[206px] fixed h-[102px] p-[10px] border-[1px] border-solid border-[#616161] rounded-[5px] top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%]">
+                  <p className="text-[11px] leading-[16px] text-center pb-[10px]">
+                      편지 템플릿을 재생성하면 <br/>
+                      현재의 템플릿은 삭제돼요. <br/>
+                      정말 다시 만들까요?
+                  </p>
+                  <div className="flex">
+                      <button
+                          className="mr-[10px] w-[90px] h-[24px] bg-[#3668EA] rounded-[5px] text-white text-[11px] font-bold">다시
+                          만들기
+                      </button>
+                      <button className="w-[90px] h-[24px] bg-[#EEE] rounded-[5px] text-[11px] font-bold">취소
+                      </button>
+                  </div>
+              </div>
+          </div>
+			}
 			<div className="pt-[10px] space-y-[10px] pb-[40px]">
 				<p className="font-bold text-[24px]">편지템플릿</p>
 				<p className="leading-[24px] text-[14px]">
@@ -93,7 +133,9 @@ export default function Page(props: propsType) {
 							편지 템플릿을 <br/>
 							다시 생성할까요?
 						</p>
-						<button className="text-[11px] text-bold text-white bg-[#3668EA] h-[24px] w-[100px] rounded-[5px]">
+						<button className="text-[11px] text-bold text-white bg-[#3668EA] h-[24px] w-[100px] rounded-[5px]"
+										onClick={() => popup()}
+						>
 							다시 만들기
 						</button>
 						<p className="text-[11px] text-[#AAA] leading-[16px]">
