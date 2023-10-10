@@ -4,6 +4,7 @@ import Image from 'next/image';
 import loginImage from '../../../public/login/icon.png';
 import kakaoBtn from '../../../public/login/kakao.png';
 import googleIcon from '../../../public/login/google.png';
+import Link from "next/link";
 
 type propsType = {};
 
@@ -41,7 +42,7 @@ export default function Home(props: propsType) {
 				<p className="text-[24px] pb-[10px] font-extrabold">애정연구소</p>
 				<p className="text-[16px] font-normal">더 깊고 풍부한 애정을 연구하다</p>
 			</div>
-			<div className="flex flex-col">
+			<div className="flex flex-col pb-[16px] items-center">
 				<div className="w-full px-[20px]">
 					<button
 						className="flex h-[44px] justify-center items-center rounded-[5px] border-[1px] border-[solid] border-[#E9E9E9] bg-[#FFF] shadow-login mb-[14px] w-full">
@@ -58,10 +59,12 @@ export default function Home(props: propsType) {
 					</button>
 				</div>
 				<div>
-					<p className="text-[14px] text-center text-[#AAAAAA] underline underline-offset-2">이메일로 계속하기</p>
+					<Link href="login/email"
+								className="cursor-pointer text-[14px] text-center text-[#AAAAAA] underline underline-offset-2"
+					>이메일로
+						계속하기</Link>
 				</div>
 			</div>
 		</div>
 	);
 }
-
