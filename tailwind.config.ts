@@ -9,7 +9,7 @@ const config: Config = {
 	theme: {
 		extend: {
 			fontFamily: {
-				'nanum': 'NanumSquareR'
+				// sans: ["NanumSquare", "NanumSquare", "NanumSquare", "NanumSquare"]
 			},
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

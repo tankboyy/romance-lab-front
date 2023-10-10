@@ -26,7 +26,7 @@ export default function AnalyzeComponent(props: propsType) {
 					AI를 이용해 분석해보세요!
 				</em>
 			</div>
-			<div className="space-y-[22px]">
+			<div className="space-y-[22px] relative">
 				<div className="pb-[22px]">
 					<SelectComponent inputData={{data: selectCouple, setData: setSelectCouple}} title="텍스트를 쓴 사람"
 													 list={['연인1', '연인2']} successText="" failText=""/>

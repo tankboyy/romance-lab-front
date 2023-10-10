@@ -1,3 +1,5 @@
+@import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@2.0/nanumsquare.css);
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -81,28 +83,24 @@ input[type='date']::-webkit-calendar-picker-indicator {
     cursor: pointer
 }
 
-@font-face {
-    font-family: "NanumSquareR";
-    src: url("/public/fonts/NanumSquareR.otf");
-    font-weight: normal;
-    font-style: normal;
+html > body {
+    font-family: "NanumSquare", sans-serif;
 }
 
 @layer compoenets {
     #customTextArea::-webkit-scrollbar {
-        width: 18px;
-        background-color: white;
+
     }
 
     #customTextArea::-webkit-scrollbar-thumb {
-        background: #AAA;
-        background-clip: padding-box;
-        border: 8px solid transparent;
+        width: 2px;
+        height: 299px;
+        background-color: #AAAAAA;
     }
 
     #customTextArea::-webkit-scrollbar-track {
-        background: white;
-        border: 8px solid transparent;
+        /*background: white;*/
+        /*border: 8px solid transparent;*/
 
     }
 
