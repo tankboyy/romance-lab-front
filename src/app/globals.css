@@ -87,6 +87,11 @@ html {
     font-family: "NanumSquare", sans-serif;
 }
 
+@font-face {
+    font-family: 'Nanum Myeongjo';
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/NanumMyeongjo/NanumMyeongjo.woff2');
+}
+
 @layer compoenets {
     #customTextArea::-webkit-scrollbar {
 
