@@ -12,7 +12,7 @@ export default function Layout({
 			<nav></nav>
 			{children}
 			<div
-				className="border-t-[1px] p-0 border-[#E2E2E2] border-solid mx-auto fixed bottom-0 left-0 right-0 max-w-[420px] h-[50px] text-[11px] bg-white">
+				className="z-50 border-t-[1px] p-0 border-[#E2E2E2] border-solid mx-auto fixed bottom-0 left-0 right-0 max-w-[420px] h-[50px] text-[11px] bg-white">
 				<div className="flex justify-between py-[17px] px-[20px] leading-[16px]">
 					<Link href="/">
 						<p className={router === "" ? "underline" : "text-[#AAA] cursor-pointer"}

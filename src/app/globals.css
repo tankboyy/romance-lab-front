@@ -83,7 +83,7 @@ input[type='date']::-webkit-calendar-picker-indicator {
     cursor: pointer
 }
 
-html > body {
+html {
     font-family: "NanumSquare", sans-serif;
 }
 
