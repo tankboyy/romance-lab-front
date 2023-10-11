@@ -3,6 +3,7 @@ import Image from "next/image";
 
 type propsType = {};
 
+
 export default function MapComponent(props: propsType) {
 	useEffect(() => {
 		const kakaoMapScript = document.createElement('script');
