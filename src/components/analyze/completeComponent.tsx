@@ -1,5 +1,5 @@
 import React from 'react';
-import TextInputComponent from "./textInputComponent";
+import TextInputComponent from "../free/textInputComponent";
 import Image from 'next/image';
 
 type propsType = {};

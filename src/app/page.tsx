@@ -1,14 +1,9 @@
 'use client';
 
-import Image from 'next/image';
 import React, {useState} from "react";
-import {TnowTap} from "../../public/types/main/types";
-import MainComponent from "./mainComponent";
-import AnalyzeComponent from "./analyze/analyzeComponent";
-import MypageComponent from "./mypageComponent";
+import MypageComponent from "../components/mypage/mypageComponent";
 
 export default function Home() {
-	const [nowTap, setNowTap] = useState<TnowTap>("메인페이지");
 
 	return (
 		<div

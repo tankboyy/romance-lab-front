@@ -2,7 +2,7 @@
 
 import React, {useState} from 'react';
 import Image from "next/image";
-import InputComponent from "../InputComponent";
+import InputComponent2 from "../../components/free/InputComponent2";
 import loginImage from "../../../public/login/icon.png";
 import loveImage from "../../../public/main/love.png";
 

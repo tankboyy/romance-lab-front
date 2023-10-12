@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import Image from "next/image";
-import loveImage from "../../public/main/love.png";
-import loginImage from "../../public/login/icon.png";
-import InputComponent from "./InputComponent";
+import loveImage from "../../../public/main/love.png";
+import loginImage from "../../../public/login/icon.png";
+import InputComponent2 from "../free/InputComponent2";
 
 type propsType = {};
 
@@ -60,10 +60,10 @@ export default function MypageComponent(props: propsType) {
 						연인 정보 수정하기
 					</div>
 					<div className="space-y-[22px]">
-						<InputComponent inputData={{data: nick, setData: setNick}} failText="" successText="" title="연인의 닉네임"
-														placeHolder="사용할 닉네임을 입력해주세요"/>
-						<InputComponent inputData={{data: age, setData: setAge}} failText="" successText="" title="연인의 나이"
-														placeHolder="나이를 입력해주세요"/>
+						<InputComponent2 inputData={{data: nick, setData: setNick}} failText="" successText="" title="연인의 닉네임"
+														 placeHolder="사용할 닉네임을 입력해주세요"/>
+						<InputComponent2 inputData={{data: age, setData: setAge}} failText="" successText="" title="연인의 나이"
+														 placeHolder="나이를 입력해주세요"/>
 						<div>
 							<p className="pl-[6px] pb-[12px]">연인의 성별</p>
 							<div className="flex space-x-[20px] text-[14px] leading-[24px]">
@@ -95,10 +95,10 @@ export default function MypageComponent(props: propsType) {
 						내 정보 수정하기
 					</div>
 					<div className="space-y-[22px]">
-						<InputComponent inputData={{data: nick, setData: setNick}} failText="" successText="" title="닉네임"
-														placeHolder="사용할 닉네임을 입력해주세요"/>
-						<InputComponent inputData={{data: age, setData: setAge}} failText="" successText="" title="나이"
-														placeHolder="나이를 입력해주세요"/>
+						<InputComponent2 inputData={{data: nick, setData: setNick}} failText="" successText="" title="닉네임"
+														 placeHolder="사용할 닉네임을 입력해주세요"/>
+						<InputComponent2 inputData={{data: age, setData: setAge}} failText="" successText="" title="나이"
+														 placeHolder="나이를 입력해주세요"/>
 						<div>
 							<p className="pl-[6px] pb-[12px]">성별</p>
 							<div className="flex space-x-[20px] text-[14px] leading-[24px]">

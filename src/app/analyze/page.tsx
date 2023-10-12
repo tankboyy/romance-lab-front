@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import AnalyzeComponent from "./analyzeComponent";
+import AnalyzeComponent from "../../components/analyze/analyzeComponent";
 import {redirect, usePathname, useRouter} from "next/navigation";
 
 type propsType = {

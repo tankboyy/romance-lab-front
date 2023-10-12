@@ -1,7 +1,7 @@
 import React, {useRef, useState} from 'react';
-import InputComponent from "../InputComponent";
-import SelectComponent from "../selectComponent";
-import TextInputComponent from "../textInputComponent";
+import InputComponent2 from "../free/InputComponent2";
+import SelectComponent from "./selectComponent";
+import TextInputComponent from "../free/textInputComponent";
 
 type propsType = {};
 
@@ -31,8 +31,8 @@ export default function AnalyzeComponent(props: propsType) {
 					<SelectComponent inputData={{data: selectCouple, setData: setSelectCouple}} title="텍스트를 쓴 사람"
 													 list={['연인1', '연인2']} successText="" failText=""/>
 				</div>
-				<InputComponent inputData={{data: title, setData: setTitle}} title="제목" successText="" failText=""
-												placeHolder="타임라인에 기록될 제목을 입력해주세요"/>
+				<InputComponent2 inputData={{data: title, setData: setTitle}} title="제목" successText="" failText=""
+												 placeHolder="타임라인에 기록될 제목을 입력해주세요"/>
 				<div className="pb-[22px]">
 					<SelectComponent title="텍스트를 쓴 사람" list={['편지', '일기', '채팅', '직접입력']}
 													 inputData={{data: selectType, setData: setSelectType}}
@@ -41,11 +41,11 @@ export default function AnalyzeComponent(props: propsType) {
 													 failText=""/>
 				</div>
 				{selectType === "직접입력" &&
-            <InputComponent inputData={{data: textClassify, setData: setTextClassify}} title="텍스트 분류 입력하기"
-                            placeHolder="텍스트 분류를 직접 입력해주세요"
-                            successText="" failText=""/>}
-				<InputComponent inputData={{data: place, setData: setPlace}} title="장소" placeHolder="연인과 함께했던 장소를 입력해주세요 (선택)"
-												successText="" failText=""/>
+            <InputComponent2 inputData={{data: textClassify, setData: setTextClassify}} title="텍스트 분류 입력하기"
+                             placeHolder="텍스트 분류를 직접 입력해주세요"
+                             successText="" failText=""/>}
+				<InputComponent2 inputData={{data: place, setData: setPlace}} title="장소" placeHolder="연인과 함께했던 장소를 입력해주세요 (선택)"
+												 successText="" failText=""/>
 				<TextInputComponent inputData={{data: text, setData: setText}} title="텍스트" successText=""
 														failText="텍스트가 입력되지 않았어요"
 														placeHolder="분석할 텍스트를 입력해주세요"/>

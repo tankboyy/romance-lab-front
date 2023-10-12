@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import Image from "next/image";
-import loveImage from "../../public/main/love.png";
-import zeroImage from "../../public/main/0.png";
-import 언짢음 from "../../public/main/emotion/언짢음.png";
-import placeImage from "../../public/main/place.png";
-import wariImage from '../../public/main/wari.png';
+import loveImage from "../../../public/main/love.png";
+import zeroImage from "../../../public/main/0.png";
+import 언짢음 from "../../../public/main/emotion/언짢음.png";
+import placeImage from "../../../public/main/place.png";
+import wariImage from '../../../public/main/wari.png';
 
 type propsType = {};
 

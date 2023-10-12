@@ -15,7 +15,7 @@ type propsType = {
 };
 
 
-export default function InputComponent(props: propsType) {
+export default function InputComponent2(props: propsType) {
 	const [isFail, setIsFail] = useState(true);
 
 	useEffect(() => {

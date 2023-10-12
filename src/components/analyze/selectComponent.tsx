@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import arrowImage from '../../public/main/arrow.png';
+import arrowImage from '../../../public/main/arrow.png';
 import Image from 'next/image';
 
 type propsType = {
@@ -27,8 +27,8 @@ export default function SelectComponent(props: propsType) {
 	}, [props.inputData.data]);
 
 	useEffect(() => {
-		if (!props.placeHolder) props.inputData.setData(props.list[0])
-	}, [])
+		if (!props.placeHolder) props.inputData.setData(props.list[0]);
+	}, []);
 
 	const onClickLi = (e: any) => {
 		props.inputData.setData(e.target.innerText);
