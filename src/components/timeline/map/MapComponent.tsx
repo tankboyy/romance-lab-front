@@ -33,8 +33,11 @@ export default function MapComponent(props: propsType) {
 				});
 				marker.setMap(map);
 				window.kakao.maps.event.addListener(marker, 'click', () => {
-					marker.setImage(new window.kakao.maps.MarkerImage('/timeline/marker.png', new kakao.maps.Size(60, 60)));
-					setOpen(true);
+					setOpen((prev) => {
+						!prev ? marker.setImage(new window.kakao.maps.MarkerImage('/timeline/marker.png', new kakao.maps.Size(60, 60))) :
+							marker.setImage(new window.kakao.maps.MarkerImage('/timeline/marker.png', new kakao.maps.Size(40, 40)));
+						return !prev;
+					});
 				});
 			});
 
