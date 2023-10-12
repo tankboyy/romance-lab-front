@@ -8,6 +8,21 @@ const config: Config = {
 	],
 	theme: {
 		extend: {
+			keyframes: {
+				'fade-in': {
+					'0%': {
+						opacity: '0',
+						transform: 'translateY(100%)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'translateY(0)'
+					}
+				}
+			},
+			animation: {
+				'fadeIn': 'fade-in 1s ease-out'
+			},
 			fontFamily: {
 				Mjo: ['Nanum Myeongjo', "sans-serif"]
 			},
@@ -18,7 +33,8 @@ const config: Config = {
 			},
 			boxShadow: {
 				'login': '4px 4px 4px 0px rgba(0, 0, 0, 0.03)',
-				'timeline': '4px 4px 4px 0px rgba(0, 0, 0, 0.05)'
+				'timeline': '4px 4px 4px 0px rgba(0, 0, 0, 0.05)',
+				'map': '0px -4px 10px 0px rgba(0, 0, 0, 0.06)',
 			}
 		},
 	},

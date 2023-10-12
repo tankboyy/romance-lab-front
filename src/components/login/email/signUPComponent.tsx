@@ -8,16 +8,15 @@ export default function SignUpComponent(props: propsType) {
 	const [password, setPassword] = useState<string>("");
 	const [authNumber, setAuthNumber] = useState<string>("");
 
-	const emailRef = useRef();
 	useEffect(() => {
-		console.log(emailRef);
+		console.log(email);
 	}, [email]);
 
 
 	return (
 		<div className="flex flex-col h-full justify-between">
 			<div className="space-y-[20px]">
-				<InputComponent ref={emailRef} setAuth={setAuth} inputData={{data: email, setData: setEmail}}
+				<InputComponent setAuth={setAuth} inputData={{data: email, setData: setEmail}}
 												placeHolder="이메일을 입력해주세요"
 												title="이메일"
 												failText="유효하지 않은 이메일이에요" successText=""/>
