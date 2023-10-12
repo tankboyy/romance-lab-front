@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import Image from "next/image";
+import Link from "next/link";
 
 type propsType = {};
 
@@ -53,7 +54,11 @@ export default function MapComponent(props: propsType) {
 			{!open ?
 				<div className="w-full max-w-[420px] mx-auto left-0 right-0 bottom-[50px] fixed z-10">
 					<div className="flex justify-end pr-[20px] pb-[10px]">
-						<Image className="" src="/main/note.png" alt="지도" width={44} height={44}/>
+						<a>
+							<Link href="/timeline">
+								<Image className="" src="/main/note.png" alt="지도" width={44} height={44}/>
+							</Link>
+						</a>
 					</div>
 				</div>
 
