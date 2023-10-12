@@ -56,12 +56,13 @@ export default function MapComponent(props: propsType) {
 					</div>
 				</div>
 
-				: <div className="w-full max-w-[420px] mx-auto left-0 right-0 bottom-[50px] fixed z-10">
+				:
+				<div className="w-full max-w-[420px] mx-auto left-0 right-0 bottom-[50px] fixed z-10 animate-fadeIn">
 					<div className="flex justify-end pr-[20px] pb-[10px]">
 						<Image className="" src="/main/note.png" alt="지도" width={44} height={44}/>
 					</div>
 
-					<div className="bg-white p-[20px] rounded-t-[10px] shadow-map animate-fadeIn">
+					<div className="bg-white p-[20px] rounded-t-[10px] shadow-map">
 						<div className="flex flex-col pb-[14px] pt-[4px]">
 							<div className="pb-[10px] flex items-center">
 								<em className="text-[18px] font-bold pr-[10px]">보라매떡볶이</em>
