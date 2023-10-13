@@ -16,20 +16,30 @@ export default function SignUpComponent(props: propsType) {
 	return (
 		<div className="flex flex-col h-full justify-between">
 			<div className="space-y-[20px]">
-				<InputComponent setAuth={setAuth} inputData={{data: email, setData: setEmail}}
-												placeHolder="이메일을 입력해주세요"
-												title="이메일"
-												failText="유효하지 않은 이메일이에요" successText=""
-												checks={[{
-													condition: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-													str: "유효하지 않은 이메일이에요"
-												}]}
-				/>
+				<div className="relative">
+					<InputComponent setAuth={setAuth} inputData={{data: email, setData: setEmail}}
+													placeHolder="이메일을 입력해주세요"
+													title="이메일"
+													successText=""
+													checks={[{
+														condition: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+														str: "유효하지 않은 이메일이에요"
+													}]}
+					/>
+					{/*{/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email) &&*/}
+					<div
+						className={`absolute bottom-[31px] right-0 transition-all duration-300 ${/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email) ? "opacity-100" : "opacity-0"}`}>
+						<button className="font-bold text-[11px] text-white bg-[#3668EA] w-[50px] h-[20px] rounded-[5px]">
+							인증요청
+						</button>
+					</div>
+					{/*}*/}
+				</div>
 				{auth && <InputComponent inputData={{data: authNumber, setData: setAuthNumber}} placeHolder="인증번호를 입력해주세요"
-                                 title="인증번호" failText="유효하지 않는 인증번호에요" type="number"
+                                 title="인증번호" type="number"
                                  successText=""/>}
 				<InputComponent placeHolder="비밀번호를 입력해주세요" inputData={{data: password, setData: setPassword}} title="비밀번호"
-												failText="비밀번호가 맞지 않아요" type="password"
+												type="password"
 												successText=""/>
 			</div>
 			<div className="flex justify-center pb-[20px]">

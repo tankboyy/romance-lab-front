@@ -18,10 +18,28 @@ const config: Config = {
 						// opacity: '1',
 						transform: 'translateY(0)'
 					}
+				},
+				'transition': {
+					from: {
+						opacity: '0',
+					},
+					to: {
+						opacity: '1',
+					}
+				},
+				'transition2': {
+					from: {
+						opacity: '1',
+					},
+					to: {
+						opacity: '0',
+					}
 				}
 			},
 			animation: {
-				'fadeIn': 'fade-in 0.5s ease-out'
+				'fadeIn': 'fade-in 0.5s ease-out',
+				'transition': 'transition 0.5s ease-out',
+				'transition2': 'transition2 0.5s ease-in'
 			},
 			fontFamily: {
 				Mjo: ['Nanum Myeongjo', "sans-serif"]

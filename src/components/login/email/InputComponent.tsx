@@ -4,7 +4,6 @@ type propsType = {
 	ref?: React.MutableRefObject<any>
 	title: string
 	type?: string
-	failText: string
 	successText: string
 	setAuth?: ((value: (((prevState: boolean) => boolean) | boolean)) => void)
 	placeHolder?: string
