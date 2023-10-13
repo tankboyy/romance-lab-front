@@ -13,7 +13,7 @@ export default function Page(props: propsType) {
 	const [age, setAge] = useState("");
 
 	return (
-		<div className="max-w-[420px] max-h-max min-h-[100vh] bg-white flex flex-col w-[100vh] p-[20px] pb-[50px]">
+		<div className="max-w-[420px] max-h-max min-h-[100vh] bg-white flex flex-col p-[20px] w-[100vw] pb-[50px]">
 			<div className="py-[54px]">
 				<div className="flex flex-col items-center pb-[62px]">
 					<em className="text-[12px]">우리가 사랑한지 <em className="text-[13px] font-bold">101</em>일 째</em>

@@ -50,7 +50,7 @@ export default function MapComponent(props: propsType) {
 	}, []);
 	return (
 		<div>
-			<div id="map" className="w-[calc(100%+40px)] h-[calc(100vh-50px)] ml-[-20px] mt-[-30px]"/>
+			<div id="map" className="w-[calc(100%+40px)] h-[calc(100vh-40px)] ml-[-20px] mt-[-30px]"/>
 			{!open ?
 				<div className="w-full max-w-[420px] mx-auto left-0 right-0 bottom-[50px] fixed z-10">
 					<div className="flex justify-end pr-[20px] pb-[10px]">
