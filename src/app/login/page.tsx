@@ -78,7 +78,8 @@ export default function Home(props: propsType) {
 						className="rounded-[5px] h-[44px] w-full bg-[#FFF500] shadow-login flex items-center justify-center"
 						onClick={() => signIn('kakao', {
 							redirect: false,
-							callbackUrl: '/login/email'
+							callbackUrl: '/login/email',
+
 						})}>
 						<Image alt="카카오" src={kakaoBtn}/>
 						<p className="pl-[4px] font-bold text-[16px] text-center">카카오로 계속하기</p>

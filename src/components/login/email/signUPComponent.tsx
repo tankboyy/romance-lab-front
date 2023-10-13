@@ -19,7 +19,12 @@ export default function SignUpComponent(props: propsType) {
 				<InputComponent setAuth={setAuth} inputData={{data: email, setData: setEmail}}
 												placeHolder="이메일을 입력해주세요"
 												title="이메일"
-												failText="유효하지 않은 이메일이에요" successText=""/>
+												failText="유효하지 않은 이메일이에요" successText=""
+												checks={[{
+													condition: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+													str: "유효하지 않은 이메일이에요"
+												}]}
+				/>
 				{auth && <InputComponent inputData={{data: authNumber, setData: setAuthNumber}} placeHolder="인증번호를 입력해주세요"
                                  title="인증번호" failText="유효하지 않는 인증번호에요" type="number"
                                  successText=""/>}

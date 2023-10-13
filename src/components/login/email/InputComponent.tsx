@@ -12,12 +12,26 @@ type propsType = {
 		data: any
 		setData: any
 	}
-	checks?: { reg: RegExp, str: string }[]
+	checks?: { condition: RegExp, str: string }[]
 };
 
 
 export default function InputComponent(props: propsType) {
-
+	useEffect(() => {
+		if (props.checks) {
+			const errMes: string[] = [];
+			props.checks.forEach(({condition, str}) => {
+				if (typeof condition === 'object') {
+					const pattern = condition as RegExp;
+					if (!pattern.test(props.inputData.data)) errMes.push(str);
+				} else {
+					// if (condition()) errMes.push(str);
+				}
+			});
+			setErrMes(errMes);
+		}
+	}, [props.inputData.data]);
+	const [errMes, setErrMes] = useState<string[]>([]);
 	return (
 		<div className="flex flex-col justify-center">
 			<div className="flex flex-col w-full">
@@ -30,22 +44,10 @@ export default function InputComponent(props: propsType) {
 						className="w-full p-[10px] leading-3 h-[30px] font-nanum focus:outline-none border-b-[1px] border-black border-solid text-[12px]"
 						onChange={(value) => props.inputData?.setData(value.target.value)}
 					/>
-					{/*{props.setAuth && isFail ?*/}
-					{/*	<div className="absolute right-0 pt-[1px]">*/}
-					{/*		<button*/}
-					{/*			className={isFail ? "w-[50px] h-[20px] rounded-[5px] bg-[#999999]" : "w-[50px] h-[20px] rounded-[5px] bg-[#3668EA]"}*/}
-					{/*			disabled={isFail}*/}
-					{/*			onClick={() => props.setAuth?.(true)}*/}
-					{/*		>*/}
-					{/*			<p className="text-[#FFF] font-bold text-[11px]">인증요청</p>*/}
-					{/*		</button>*/}
-					{/*	</div> :*/}
-					{/*	null*/}
-					{/*}*/}
 					<div className="pl-[10px] pt-[10px] absolute bottom-0">
 						{
-							props.failText ?
-								<p className="text-[#E84E4E] text-[12px]">{props.failText}</p> :
+							errMes.length !== 0 ?
+								<p className="text-[#E84E4E] text-[12px]">{errMes[0]}</p> :
 								props.successText ?
 									<p className="text-[#3668EA] text-[12px]">{props.successText}</p> :
 									null
