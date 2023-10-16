@@ -1,6 +1,6 @@
 'use client';
 import React, {useState} from 'react';
-import InputComponent from "../../../components/free/InputComponent";
+import InputComponent3 from "../../../components/free/InputComponent3";
 
 type propsType = {};
 
@@ -23,10 +23,10 @@ export default function Page(props: propsType) {
 					</div>
 					<div className="space-y-[24px]">
 
-						<InputComponent inputData={{data: nick, setData: setNick}} failText="" successText="" title="연인의 닉네임"
-														placeHolder="연인의 닉네임을 입력해주세요"/>
-						<InputComponent inputData={{data: age, setData: setAge}} failText="" successText="" title="연인의 나이"
-														placeHolder="연인의 나이를 입력해주세요"/>
+						<InputComponent3 inputData={{data: nick, setData: setNick}} failText="" successText="" title="연인의 닉네임"
+														 placeHolder="연인의 닉네임을 입력해주세요"/>
+						<InputComponent3 inputData={{data: age, setData: setAge}} failText="" successText="" title="연인의 나이"
+														 placeHolder="연인의 나이를 입력해주세요"/>
 						<div className="pl-[10px] pb-[20px]">
 							<p className="mb-[6px]">연인의 성별</p>
 							<div className="items-start flex space-x-[20px]">

@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import InputComponent from "../../login/email/InputComponent";
+import InputComponent from "../../free/InputComponent";
 
 type propsType = {};
 

@@ -92,7 +92,66 @@ html {
     src: url('https://cdn.jsdelivr.net/gh/webfontworld/NanumMyeongjo/NanumMyeongjo.woff2');
 }
 
+input::-webkit-inner-spin-button {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+
 @layer compoenets {
+
+
+    .radio {
+        /*& label:hover {*/
+        /*    background-color: red;*/
+        /*    margin: 2px;*/
+        /*}*/
+
+        font-size: 14px;
+        line-height: 24px;
+        padding: 0.2em 0.4em;
+
+        & span {
+            vertical-align: middle;
+        }
+
+        /*[type='radio'][value='male'] {*/
+        /*    background-color: blue;*/
+        /*    color: white;*/
+        /*    !*border: *!*/
+        /*    padding: 2px;*/
+        /*}*/
+
+        /*[type="radio"] {*/
+        /*    vertical-align: middle;*/
+        /*    appearance: none;*/
+        /*    border: max(2px, 0.1em) solid rgb(128, 128, 128);*/
+        /*    border-radius: 50%;*/
+        /*    width: 1.25em;*/
+        /*    height: 1.25em;*/
+        /*    transition: border 0.5s ease-in-out;*/
+        /*}*/
+
+        [type='radio']:checked {
+            border: 0.4em solid tomato;
+        }
+
+        [type="radio"]:hover {
+            box-shadow: 0 0 0 max(4px, 0.2em) lightgray;
+            cursor: pointer;
+        }
+
+        [type="radio"]:hover + span {
+            cursor: pointer;
+        }
+
+
+        [type="radio"]:focus-visible {
+            outline-offset: max(2px, 0.1em);
+            outline: max(2px, 0.1em) dotted tomato;
+        }
+    }
+
     #customTextArea::-webkit-scrollbar {
 
     }
@@ -109,7 +168,10 @@ html {
 
     }
 
+
     .circle {
+
+
         --p: 0;
         background-color: darkgray;
         width: 300px;

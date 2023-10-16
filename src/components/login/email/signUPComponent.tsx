@@ -1,5 +1,5 @@
 import React, {forwardRef, useEffect, useRef, useState} from 'react';
-import InputComponent from "./InputComponent";
+import InputComponent from "../../free/InputComponent";
 
 type propsType = {};
 export default function SignUpComponent(props: propsType) {
