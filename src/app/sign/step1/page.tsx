@@ -1,19 +1,40 @@
 'use client';
 
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import InputComponent from "../../../components/free/InputComponent";
 import Image from "next/image";
 import arrow from "/public/main/arrow3.png";
+import {useRecoilState} from "recoil";
+import {userState} from "../../../recoil/atoms";
 
 type propsType = {};
 
 export default function Page(props: propsType) {
 	const [nick, setNick] = useState("");
 	const [age, setAge] = useState("");
+	const [gender, setGender] = useState("");
 	const [clear, setClear] = useState(false);
+	const [user, setUser] = useRecoilState(userState);
 
+	useEffect(() => {
+		console.log(parseInt(age) <= 17);
+		if (/^[가-힣ㄱ-ㅎA-Za-z0-9]*$/.test(nick) && /^(?:[1-9]|[1-9]\d|99)$/.test(age) && gender !== "" && parseInt(age) > 17) {
+			setClear(true);
+		} else setClear(false);
+	}, [nick, age, gender]);
 	const handleNextStep = () => {
-
+		setUser({
+			me: {
+				name: nick,
+				age: age,
+				gender: gender
+			},
+			you: {
+				name: '',
+				age: '',
+				gender: ''
+			}
+		});
 	};
 	const onClickSpan = (name: string) => {
 		document.getElementById(name)?.click();
@@ -69,6 +90,7 @@ export default function Page(props: propsType) {
 									<div className="flex items-center cursor-pointer">
 										<div className="relative flex">
 											<input name="gender" value="male" type="radio"
+														 onClick={() => setGender("남자")}
 														 id="man"
 														 className="peer checked:border-[0.1em] checked:border-blue-700 appearance-none w-[18px] h-[18px] rounded-[50%] border-[1px] border-solid border-[#000]"
 											/>
@@ -80,6 +102,7 @@ export default function Page(props: propsType) {
 									<div className="flex items-center cursor-pointer">
 										<div className="relative flex">
 											<input name="gender" value="female"
+														 onClick={() => setGender("여자")}
 														 type="radio"
 														 id="girl"
 														 className="peer checked:border-[0.1em] checked:border-red-600 appearance-none w-[18px] h-[18px] rounded-[50%] border-[1px] border-solid border-[#000]"

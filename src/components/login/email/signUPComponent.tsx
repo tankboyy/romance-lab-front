@@ -10,9 +10,6 @@ export default function SignUpComponent(props: propsType) {
 	const [authNumber, setAuthNumber] = useState<string>("");
 
 	useEffect(() => {
-		console.log(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email) &&
-			/^123456$/.test(authNumber) && /^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[\W_]).{8,}$/.test(password)
-		);
 		if (/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email) &&
 			/^123456$/.test(authNumber) && /^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[\W_]).{8,}$/.test(password)
 		) {
