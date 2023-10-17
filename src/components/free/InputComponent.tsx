@@ -19,7 +19,8 @@ type propsType = {
 
 export default function InputComponent(props: propsType) {
 	useEffect(() => {
-		if (props.checks) {
+		console.log('실행');
+		if (props.checks?.length) {
 			const errMes: string[] = [];
 			props.checks.forEach(({condition, str}) => {
 				if (typeof condition === 'object') {

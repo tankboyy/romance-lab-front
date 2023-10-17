@@ -1,22 +1,66 @@
 'use client';
 
 import React, {useEffect, useState} from 'react';
+import Image from "next/image";
+import arrow from "/public/main/arrow3.png";
+import {useRecoilState} from "recoil";
+import {userState} from "../../../recoil/atoms";
+import {useRouter} from "next/navigation";
+import InputComponent from "../../../components/free/InputComponent";
 
 type propsType = {};
 
 export default function Page(props: propsType) {
 	const [already, setAlready] = useState(false);
-	const [inputValue, setInputValue] = useState("");
+	const [auth, setAuthCode] = useState("");
 	const [checking, setChecking] = useState(false);
+	const [clear, setClear] = useState(false);
+	const [user, setUser] = useRecoilState(userState);
+	const router = useRouter();
+
 
 	useEffect(() => {
-		if (inputValue.length === 6) setChecking(true);
-		else setChecking(false);
-	}, [inputValue]);
+		if (!already) setClear(true);
+		else setClear(false);
+		if (checking) setClear(true);
+		if (auth.length !== 6) {
+			setClear(false);
+		}
+	}, [already, checking, auth]);
+
+	const handleNextStep = () => {
+		setUser((prev) => {
+			return {
+				me: {
+					name: prev.me.name,
+					age: prev.me.age,
+					gender: prev.me.gender
+				},
+				you: {
+					name: '',
+					age: '',
+					gender: ''
+				}
+			};
+		});
+		router.push('/sign/step3');
+	};
+
+	const onAuthReq = () => {
+		console.log(auth);
+		if (auth === "123456") {
+			setChecking(true);
+		}
+	};
 
 	return (
-		<div className="max-w-[420px] max-h-[1000px] bg-white flex flex-col w-[100vh] h-[100vh]">
-			<div className="flex flex-col justify-between h-full px-[20px]">
+		<div className="max-w-[420px] min-h-screen bg-white flex flex-col w-[100vw] h-[100vh] p-[20px]">
+			<div className="mb-[26px]">
+				<button>
+					<Image alt="화살표" src={arrow}/>
+				</button>
+			</div>
+			<div className="flex flex-col justify-between h-full">
 				<div>
 					<div className="text-[14px] mb-[40px] space-y-[10px] leading-[32px]">
 						<p className="text-[24px] font-bold">
@@ -51,34 +95,38 @@ export default function Page(props: propsType) {
 					{
 						already &&
               <div>
-                  <p className="pl-[6px] text-[14px] pb-[10px]">회원코드</p>
-                  <div className="relative flex pb-[22px]">
-                      <input type="text" value={inputValue} placeholder="연인의 회원코드를 입력해주세요"
-                             className="border-b-[1px] border-black border-b-solid flex justify-between w-full text-[12px] py-[9px] pl-[10px]"
-                             onChange={(value) => setInputValue(value.target.value)}/>
-                      <div className="absolute right-0 pt-[5px]">
+                  <div className="relative">
+                      <InputComponent inputData={{data: auth, setData: setAuthCode}}
+                                      placeHolder="연인의 회원코드를 입력해주세요"
+                                      type="number"
+                                      max={6}
+                                      title="회원코드"
+                                      successText={`${checking ? "회원코드가 인증됐어요" : ""}`}
+                                      checks={[{
+																				condition: !checking,
+																				str: "회원코드가 유효하지 않아요"
+																			}]}
+                      />
+                      <div
+                          className={`absolute bottom-[31px] right-0 transition-all duration-300 ${auth.length === 6 ? "opacity-100" : "opacity-0"}`}>
                           <button
-                              className={checking ? "w-[50px] h-[20px] bg-[#3668EA] rounded-[5px] text-[11px] text-[#FFF]" : "w-[50px] h-[20px] bg-[#D9D9D9] rounded-[5px] text-[11px]"}
-                              onClick={() => alert("클릭")}
+                              className="font-bold text-[11px] text-white bg-[#3668EA] w-[50px] h-[20px] rounded-[5px]"
+                              onClick={onAuthReq}
                           >
-                              <p>확인</p>
+                              확인
                           </button>
-                      </div>
-                      <div className="absolute bottom-0 pl-[10px] ">
-                          <p className="text-[#E84E4E] text-[12px]">회원코드가 유효하지 않아요.</p>
-												{/*<p className="text-[#3668EA] text-[12px]">회원코드가 인증됐어요.</p>*/}
                       </div>
                   </div>
               </div>
 					}
 				</div>
-				<div className="flex justify-center pb-[22px]">
+				<div className="flex justify-center pb-[2px]">
 					<button
-						className="w-full h-[40px] rounded-[5px] bg-[#3668EA] text-[#FFF] text-[12px]"
-						// disabled={true}
-						// onClick={() => props.setStep(3)}
+						className={`${clear ? "w-full h-[40px] rounded-[5px] bg-[#3668EA] text-[#FFF] text-[12px] font-bold" : "w-full h-[40px] rounded-[5px] text-[#FFF] text-[12px] font-bold bg-[#D9D9D9]"}`}
+						disabled={!clear}
+						onClick={handleNextStep}
 					>
-						<p>다음 단계로</p>
+						<p> 가입 완료하기</p>
 					</button>
 				</div>
 			</div>

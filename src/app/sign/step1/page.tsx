@@ -6,6 +6,7 @@ import Image from "next/image";
 import arrow from "/public/main/arrow3.png";
 import {useRecoilState} from "recoil";
 import {userState} from "../../../recoil/atoms";
+import {useRouter} from "next/navigation";
 
 type propsType = {};
 
@@ -15,7 +16,7 @@ export default function Page(props: propsType) {
 	const [gender, setGender] = useState("");
 	const [clear, setClear] = useState(false);
 	const [user, setUser] = useRecoilState(userState);
-
+	const router = useRouter();
 	useEffect(() => {
 		console.log(parseInt(age) <= 17);
 		if (/^[가-힣ㄱ-ㅎA-Za-z0-9]*$/.test(nick) && /^(?:[1-9]|[1-9]\d|99)$/.test(age) && gender !== "" && parseInt(age) > 17) {
@@ -35,6 +36,7 @@ export default function Page(props: propsType) {
 				gender: ''
 			}
 		});
+		router.push('/sign/step2');
 	};
 	const onClickSpan = (name: string) => {
 		document.getElementById(name)?.click();
