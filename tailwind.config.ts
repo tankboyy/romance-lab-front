@@ -53,6 +53,7 @@ const config: Config = {
 				'login': '4px 4px 4px 0px rgba(0, 0, 0, 0.03)',
 				'timeline': '4px 4px 4px 0px rgba(0, 0, 0, 0.05)',
 				'map': '0px -4px 10px 0px rgba(0, 0, 0, 0.06)',
+				'image': '4px 4px 4px rgba(0, 0, 0, 0.10)'
 			}
 		},
 	},

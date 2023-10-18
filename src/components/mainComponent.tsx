@@ -18,6 +18,7 @@ export default function MainComponent(props: propsType) {
 	};
 
 	const closePopup = () => {
+		console.log('hi');
 		setWarning(false);
 		document.body.style.overflow = "unset";
 	};
@@ -32,7 +33,7 @@ export default function MainComponent(props: propsType) {
 					</div>
 					<div className="flex items-center text-[12px] text-center relative">
 						<div>
-							<Image onClick={() => setWarning(prev => !prev)} className="peer cursor-pointer" src={wariImage}
+							<Image onClick={popup} className="peer cursor-pointer" src={wariImage}
 										 alt="위험해"/>
 							{
 								warning &&
@@ -76,8 +77,10 @@ export default function MainComponent(props: propsType) {
 							</p>
 							<em className="text-[#AAA] text-[11px] leading-[16px] pb-[10px]">조금만 더 분석하러 가 볼까요?</em>
 							<button
-								className="bg-[#3668EA] rounded-[5px] w-[100px] h-[24px] text-[11px] font-bold leading-[16px] text-[#FFF]">분석하러
-								가기
+								className="bg-[#3668EA] rounded-[5px] w-[100px] h-[24px] text-[11px] font-bold leading-[16px] text-[#FFF]"
+								onClick={() => router.push('/analysis')}
+							>
+								분석하러 가기
 							</button>
 						</div>
 					</div>
@@ -94,9 +97,11 @@ export default function MainComponent(props: propsType) {
 								이번 주에 가장 많이 분석된 감정은<br/>
 								<em className="text-[16px] font-bold">언짢음</em>이에요!
 							</p>
-							<p className="text-[#AAA] text-[11px] pb-[10px]">어떤 감정들이 분석됐는지 확인해볼까요?</p>
+							<p className="text-[#AAA] text-[11px] leading-[16px] pb-[10px]">어떤 감정들이 분석됐는지 확인해볼까요?</p>
 							<button
-								className="bg-[#3668EA] rounded-[5px] w-[100px] h-[24px] text-[11px] font-bold leading-[16px] text-[#FFF]">타임라인
+								className="bg-[#3668EA] rounded-[5px] w-[100px] h-[24px] text-[11px] font-bold leading-[16px] text-[#FFF]"
+								onClick={() => router.push('/timeline')}
+							>타임라인
 								보기
 							</button>
 						</div>
@@ -113,7 +118,9 @@ export default function MainComponent(props: propsType) {
 							<p className="text-[13px] leading-[20px] text-center pb-[10px]">우리가 어떤 장소를 찾아갔는지
 								<br/>확인해볼까요?</p>
 							<button
-								className="bg-[#3668EA] rounded-[5px] w-[100px] h-[24px] text-[11px] font-bold leading-[16px] text-[#FFF]">타임라인
+								className="bg-[#3668EA] rounded-[5px] w-[100px] h-[24px] text-[11px] font-bold leading-[16px] text-[#FFF]"
+								onClick={() => router.push('/timeline')}
+							>타임라인
 								보기
 							</button>
 						</div>
