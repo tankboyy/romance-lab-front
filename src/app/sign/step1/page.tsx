@@ -71,6 +71,7 @@ export default function Page(props: propsType) {
 															}
 														]}
 														successText="" title="닉네임"/>
+
 						<InputComponent inputData={{data: age, setData: setAge}} successText=""
 														placeHolder="나이를 입력해주세요"
 														type="number"
@@ -132,6 +133,7 @@ export default function Page(props: propsType) {
 					</button>
 				</div>
 			</div>
+			
 
 		</div>
 	);

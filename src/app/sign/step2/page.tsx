@@ -20,13 +20,13 @@ export default function Page(props: propsType) {
 
 
 	useEffect(() => {
-		if (!already) setClear(true);
-		else setClear(false);
-		if (checking) setClear(true);
 		if (auth.length !== 6) {
 			setClear(false);
 		}
+		if (!already) setClear(true);
+		if (checking) setClear(true);
 	}, [already, checking, auth]);
+
 
 	const handleNextStep = () => {
 		setUser((prev) => {
@@ -43,7 +43,12 @@ export default function Page(props: propsType) {
 				}
 			};
 		});
-		router.push('/sign/step3');
+		if (already) {
+
+			router.push('/');
+		} else {
+			router.push('/sign/step3');
+		}
 	};
 
 	const onAuthReq = () => {
@@ -126,7 +131,7 @@ export default function Page(props: propsType) {
 						disabled={!clear}
 						onClick={handleNextStep}
 					>
-						<p> 가입 완료하기</p>
+						<p> {`${already ? "회원정보 입력 완료하기" : '가입 완료하기'}`}</p>
 					</button>
 				</div>
 			</div>
