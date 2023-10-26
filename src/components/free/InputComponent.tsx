@@ -11,6 +11,7 @@ type propsType = {
 		data: any
 		setData: any
 	}
+	disabled?: boolean
 	min?: number
 	max?: number
 	checks?: { condition: RegExp | boolean, str: string }[]
@@ -19,7 +20,6 @@ type propsType = {
 
 export default function InputComponent(props: propsType) {
 	useEffect(() => {
-		console.log('실행');
 		if (props.checks?.length) {
 			const errMes: string[] = [];
 			props.checks.forEach(({condition, str}) => {
@@ -40,6 +40,7 @@ export default function InputComponent(props: propsType) {
 				<label className="text-left text-[14px] leading-[24px] pl-[6px] pb-[4px]">{props.title}</label>
 				<div className="flex relative pb-[22px]">
 					<input
+						disabled={props.disabled && props.disabled}
 						maxLength={props.max}
 						minLength={props.min}
 						placeholder={props.placeHolder && props.placeHolder}

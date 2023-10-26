@@ -40,7 +40,8 @@ export default function Page(props: propsType) {
 					name: '',
 					age: '',
 					gender: ''
-				}
+				},
+				date: ""
 			};
 		});
 		if (already) {
@@ -99,30 +100,30 @@ export default function Page(props: propsType) {
 					</div>
 					{
 						already &&
-              <div>
-                  <div className="relative">
-                      <InputComponent inputData={{data: auth, setData: setAuthCode}}
-                                      placeHolder="연인의 회원코드를 입력해주세요"
-                                      type="number"
-                                      max={6}
-                                      title="회원코드"
-                                      successText={`${checking ? "회원코드가 인증됐어요" : ""}`}
-                                      checks={[{
-																				condition: !checking,
-																				str: "회원코드가 유효하지 않아요"
-																			}]}
-                      />
-                      <div
-                          className={`absolute bottom-[31px] right-0 transition-all duration-300 ${auth.length === 6 ? "opacity-100" : "opacity-0"}`}>
-                          <button
-                              className="font-bold text-[11px] text-white bg-[#3668EA] w-[50px] h-[20px] rounded-[5px]"
-                              onClick={onAuthReq}
-                          >
-                              확인
-                          </button>
-                      </div>
-                  </div>
+            <div>
+              <div className="relative">
+                <InputComponent inputData={{data: auth, setData: setAuthCode}}
+                                placeHolder="연인의 회원코드를 입력해주세요"
+                                type="number"
+                                max={6}
+                                title="회원코드"
+                                successText={`${checking ? "회원코드가 인증됐어요" : ""}`}
+                                checks={[{
+																	condition: !checking,
+																	str: "회원코드가 유효하지 않아요"
+																}]}
+                />
+                <div
+                  className={`absolute bottom-[31px] right-0 transition-all duration-300 ${auth.length === 6 ? "opacity-100" : "opacity-0"}`}>
+                  <button
+                    className="font-bold text-[11px] text-white bg-[#3668EA] w-[50px] h-[20px] rounded-[5px]"
+                    onClick={onAuthReq}
+                  >
+                    확인
+                  </button>
+                </div>
               </div>
+            </div>
 					}
 				</div>
 				<div className="flex justify-center pb-[2px]">
@@ -131,7 +132,7 @@ export default function Page(props: propsType) {
 						disabled={!clear}
 						onClick={handleNextStep}
 					>
-						<p> {`${already ? "회원정보 입력 완료하기" : '가입 완료하기'}`}</p>
+						<p> {`${already ? "회원정보 입력 완료하기" : '다음 단계로'}`}</p>
 					</button>
 				</div>
 			</div>

@@ -15,27 +15,32 @@ export default function Page(props: propsType) {
 	const [gender, setGender] = useState("");
 	const [clear, setClear] = useState(false);
 	const [user, setUser] = useRecoilState(userState);
-	const router = useRouter();
 	const [date, setDate] = useState<any>();
+	const router = useRouter();
 
 	useEffect(() => {
-		console.log(date);
-	}, [date]);
+		if (/^[가-힣ㄱ-ㅎA-Za-z0-9]*$/.test(nick) && /^(?:[1-9]|[1-9]\d|99)$/.test(age) && gender !== "" && parseInt(age) > 17 && new Date(date) <= new Date()) {
+			setClear(true);
+		} else setClear(false);
+	}, [nick, age, gender, date]);
 
 	const handleNextStep = () => {
-		setUser({
-			me: {
-				name: nick,
-				age: age,
-				gender: gender
-			},
-			you: {
-				name: '',
-				age: '',
-				gender: ''
-			}
+		setUser((prev) => {
+			return {
+				me: {
+					name: prev.me.name,
+					age: prev.me.age,
+					gender: prev.me.gender
+				},
+				you: {
+					name: nick,
+					age: age,
+					gender: gender
+				},
+				date: date
+			};
 		});
-		router.push('/sign/step2');
+		router.push('/');
 	};
 	const onClickSpan = (name: string) => {
 		document.getElementById(name)?.click();

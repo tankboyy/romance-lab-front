@@ -12,6 +12,7 @@ export const userState = atom({
 			name: '',
 			age: '',
 			gender: ''
-		}
+		},
+		date: ''
 	}
 });
