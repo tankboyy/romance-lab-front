@@ -3,10 +3,12 @@
 import React, {useEffect, useState} from "react";
 import Image from "next/image";
 import arrow from "@/../public/main/arrow2.png";
+import PlacesSearchResultItem = kakao.maps.services.PlacesSearchResultItem;
 
 
 export default function MapComponent() {
-	const [info, setInfo] = useState();
+	const [info, setInfo] = useState("");
+	const [searchList, setSearchList] = useState<PlacesSearchResultItem[]>();
 	useEffect(() => {
 		const kakaoMapScript = document.createElement('script');
 		kakaoMapScript.async = true;
@@ -16,49 +18,54 @@ export default function MapComponent() {
 		const onLoadKaKaoAPI = () => {
 			window.kakao.maps.load(() => {
 				const ps = new window.kakao.maps.services.Places();
-
-				ps.keywordSearch("이태원 맛집", (data, status, _pagination) => {
-					console.log(data);
+				const keyword = info;
+				if (!info.replace(/^\s+|\s+$/g, '')) return;
+				ps.keywordSearch(info, (data, status, _pagination) => {
 					if (status === kakao.maps.services.Status.OK) {
-						// 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
-						// LatLngBounds 객체에 좌표를 추가합니다
-						const bounds = new kakao.maps.LatLngBounds();
-						let markers = [];
-
-						for (var i = 0; i < data.length; i++) {
-							// @ts-ignores
-							markers.push({
-								position: {
-									lat: data[i].y,
-									lng: data[i].x,
-								},
-								content: data[i].place_name,
-							});
-							// @ts-ignore
-							bounds.extend(kakao.maps.LatLng(data[i].y, data[i].x));
-						}
-						console.log(markers);
-						setMarkers(markers);
-
-						// 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
-						map.setBounds(bounds);
+						console.log(data);
+						setSearchList(data);
 					}
 				});
-
 			});
-
 		};
 
 		kakaoMapScript.addEventListener('load', onLoadKaKaoAPI);
-	}, []);
+	}, [info]);
 
 
 	return (
-		<div className="flex flex-col">
-			<div>
-				<Image alt="화살표" src={arrow}/>
+		<div className="flex flex-col absolute justify-center w-[calc(100%+40px)] ml-[-20px]">
+			<div className="relative bg-[#ffffff] min-h-[100vh] h-[200vh] z-30 max-w-[420px] w-[100vh] top-0 px-[20px]">
+				<div>
+					<Image alt="화살표" src={arrow}/>
+				</div>
+				<div
+					className="px-[20px] bg-gray-200 focus-within:bg-gray-300 w-full h-[40px] rounded-full flex items-center justify-center my-[20px]">
+					<input onChange={(e) => setInfo(e.target.value)} className="w-full bg-transparent focus:outline-none"
+								 type="text"/>
+				</div>
+				<div>
+					<div className="text-[12px] text-[#aaa] font-bold pb-[10px] border-solid border-b-[1px] border-gray-300">
+						장소결과
+					</div>
+					{searchList?.map((item) => (
+						<div
+							className="pr-[10px] w-full h-[50px] flex justify-between items-center py-[20px] border-solid border-b-[1px] group border-b-gray-100 hover:bg-gray-200">
+							<p className="flex flex-col px-[10px] justify-center text-[14px] w-4/6">
+								<em>
+									{item.place_name}
+								</em>
+								<em className="text-[12px] text-[#aaa] font-bold mt-[5px]">
+									{item.address_name}
+								</em>
+							</p>
+							<button
+								className="h-[30px] border-solid border-[1px] p-[10px] text-[12px] group-hover:border-[#aaa] flex items-center">선택
+							</button>
+						</div>
+					))}
+				</div>
 			</div>
-			<input className="flex bg-"/>
 		</div>
 
 	);
