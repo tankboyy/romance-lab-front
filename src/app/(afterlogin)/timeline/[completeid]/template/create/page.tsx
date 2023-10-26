@@ -17,7 +17,7 @@ export default function Page(props: propsType) {
 
 
 	return (
-		<div className="max-w-[420px] max-h-[1200px] bg-white flex flex-col w-[100vh] p-[20px] pb-[50px]">
+		<div className="max-w-[420px] min-h-[100vh] bg-white flex flex-col w-[100vw] p-[20px] pb-[50px]">
 			<div>
 				<div className="pt-[10px] space-y-[10px] pb-[40px]">
 					<p className="font-bold text-[24px]">편지템플릿 생성하기</p>

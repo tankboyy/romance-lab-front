@@ -3,13 +3,14 @@
 import React, {useState} from 'react';
 import Image from "next/image";
 import TextInputComponent from '../../../../components/timeline/textInputComponent';
+import Link from "next/link";
 
 type propsType = {};
 
 export default function Page(props: propsType) {
 	const [text, setText] = useState("");
 	return (
-		<div className="max-w-[420px] max-h-max min-h-[100vh] bg-white flex flex-col w-[100vh] p-[20px] pb-[50px]">
+		<div className="max-w-[420px] max-h-max min-h-[100vh] bg-white flex flex-col w-[100vw] p-[20px] pb-[50px]">
 			<div className="pt-[10px] pb-[60px]">
 				<p className="text-[24px] leading-[32px] font-bold pb-[10px]">
 					텍스트 분석결과
@@ -29,7 +30,8 @@ export default function Page(props: propsType) {
 				</p>
 			</div>
 			<div className="pb-[28px]">
-				<TextInputComponent failText="" inputData={{data: text, setData: setText}} successText="" title="분석된 텍스트"/>
+				<TextInputComponent readonly={true} failText="" inputData={{data: text, setData: setText}} successText=""
+														title="분석된 텍스트"/>
 			</div>
 			<div>
 				<p className="pb-[10px] text-[14px] border-solid border-black border-b-[1px] mb-[20px]">분석 결과</p>
@@ -129,7 +131,9 @@ export default function Page(props: propsType) {
 								<em className="leading-[20px]">
 									이 장소를 타임라인에서 지도와 함께 볼 수 있어요.
 								</em>
-								<em className="underline text-[11px] pt-[6px] pb-[14px]">지도로 보기</em>
+								<Link href="/timeline/map" className="underline text-[11px] pt-[6px] pb-[14px]">
+									지도로 보기
+								</Link>
 								<em className="text-[#AAA] leading-[20px] text-[11px]">이 장소는 텍스트를 분석요청할 때 함께 제출된 장소에요.</em>
 							</p>
 						</div>
@@ -156,7 +160,9 @@ export default function Page(props: propsType) {
 							이 분석결과를 바탕으로 연인에게 편지를 써볼까요?<br/>
 							저희가 도와드릴 수 있어요!
 						</p>
-						<p className="underline text-[11px]">편지 쓰러 가기</p>
+						<Link href="/timeline/1234/template/create" className="underline text-[11px]">
+							편지 쓰러 가기
+						</Link>
 					</div>
 				</div>
 			</div>

@@ -55,7 +55,7 @@ export default function Home(props: propsType) {
 
 
 	return (
-		<div className="max-w-[420px] max-h-[1200px] bg-white flex flex-col w-[100vh] h-[100vh] justify-between pb-[36px]">
+		<div className="max-w-[420px] min-h-[100vh] bg-white flex flex-col w-[100vw] h-[100vh] justify-between pb-[36px]">
 			<div className="text-center py-[100px] flex flex-col justify-center items-center text-[20px] my-auto">
 				<Image className="mb-[20px]" alt="메인" src={loginImage}/>
 				<p className="text-[24px] pb-[10px] font-extrabold">애정연구소</p>

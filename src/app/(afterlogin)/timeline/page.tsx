@@ -8,9 +8,8 @@ import Link from "next/link";
 type propsType = {};
 
 export default function Page(props: propsType) {
-	const router = useRouter();
 	return (
-		<div className="max-w-[420px] max-h-max min-h-[100vh] bg-white flex flex-col w-[100vh] p-[20px] pb-[50px]">
+		<div className="max-w-[420px] min-h-[100vh] bg-white flex flex-col w-[100vw] p-[20px] pb-[50px]">
 			<div className="pt-[10px]">
 				<div className="space-y-[40px]">
 					<p className="flex flex-col leading-[32px] font-bold">
@@ -29,7 +28,7 @@ export default function Page(props: propsType) {
 						<p
 							className="pb-[6px] items-center text-[14px] border-solid border-black border-b-[1px] mb-[10px] flex justify-between">
 							<em className="leading-[24px]">분석결과</em>
-							<em className="text-[11px] underline">전체 기록 보기</em>
+							<Link href="/timeline/all" className="text-[11px] underline">전체 기록 보기</Link>
 						</p>
 
 						<div className="flex border-b-[1px] border-solid border-[#E2E2E2] items-center py-[16px]">
@@ -51,7 +50,7 @@ export default function Page(props: propsType) {
 								<em className="text-[12px]">유저2 (연인)님이 일기를 분석했어요.</em><br/>
 								<div className="justify-between flex">
 									<em className="text-[11px] text-[#AAA]">2023.09.07</em>
-									<em className="text-[11px] underline">편지템플릿 보기</em>
+									<Link href="/timeline/1234/template" className="text-[11px] underline">편지템플릿 보기</Link>
 								</div>
 							</p>
 						</div>
@@ -63,7 +62,8 @@ export default function Page(props: propsType) {
 								<em className="text-[12px]">유저2유저2유저2유저2 (연인)님이 가족모임기록을 분석했어요.</em><br/>
 								<div className="justify-between flex">
 									<em className="text-[11px] text-[#AAA]">2023.09.07</em>
-									<em className="text-[11px] underline">편지템플릿 보기</em>
+									<Link href="/timeline/1234/template" className="text-[11px] underline">편지템플릿 보기</Link>
+
 								</div>
 							</p>
 						</div>

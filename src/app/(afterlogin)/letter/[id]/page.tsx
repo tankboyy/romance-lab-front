@@ -1,9 +1,13 @@
+'use client';
+
 import React from 'react';
 import Image from "next/image";
+import {useRouter} from "next/navigation";
 
 type propsType = {};
 
 export default function Page(props: propsType) {
+	const router = useRouter();
 	return (
 		<div className="max-w-[420px] max-h-max min-h-[100vh] bg-white flex flex-col w-full p-[20px] pb-[50px] relative">
 			<div className="pt-[10px] pb-[40px]">
@@ -59,7 +63,9 @@ export default function Page(props: propsType) {
 						연인과 함께 <br/>
 						여러분의 애정을 연구해보세요!
 					</p>
-					<button className="w-full h-[40px] rounded-[5px] bg-[#3668EA] text-[12px] font-bold text-white">
+					<button className="w-full h-[40px] rounded-[5px] bg-[#3668EA] text-[12px] font-bold text-white"
+									onClick={() => router.push('/login')}
+					>
 						서비스 즐기러 가기
 					</button>
 				</div>

@@ -85,8 +85,7 @@ export default function MapComponent(props: propsType) {
 								<em className="text-[12px] pb-[8px]">유저2 (연인)님이 일기를 분석했어요.</em>
 								<div className="justify-between flex">
 									<em className="text-[11px] text-[#AAA]">2023.09.06</em>
-
-									<em className="text-[11px] underline">편지템플릿 보기</em>
+									<Link href="/timeline/1234/template" className="text-[11px] underline">편지템플릿 보기</Link>
 								</div>
 							</div>
 						</div>

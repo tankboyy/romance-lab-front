@@ -23,28 +23,29 @@ export default function Page(props: propsType) {
 		<div className="max-w-[420px] max-h-max min-h-[100vh] bg-white flex flex-col p-[20px] pb-[50px] relative">
 			{
 				modalOpen &&
-          <div>
-              <div className="bg-[rgba(255,255,255,0.8)] fixed left-0 top-0 w-full h-full z-20 cursor-pointer"
-                   onClick={() => closePopup()}
-              >
-              </div>
-              <div
-                  className="bg-white z-30 w-[206px] fixed h-[102px] p-[10px] border-[1px] border-solid border-[#616161] rounded-[5px] top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%]">
-                  <p className="text-[11px] leading-[16px] text-center pb-[10px]">
-                      편지 템플릿을 재생성하면 <br/>
-                      현재의 템플릿은 삭제돼요. <br/>
-                      정말 다시 만들까요?
-                  </p>
-                  <div className="flex">
-                      <button
-                          className="mr-[10px] w-[90px] h-[24px] bg-[#3668EA] rounded-[5px] text-white text-[11px] font-bold">다시
-                          만들기
-                      </button>
-                      <button className="w-[90px] h-[24px] bg-[#EEE] rounded-[5px] text-[11px] font-bold">취소
-                      </button>
-                  </div>
-              </div>
+        <div>
+          <div className="bg-[rgba(255,255,255,0.8)] fixed left-0 top-0 w-full h-full z-20 cursor-pointer"
+               onClick={() => closePopup()}
+          >
           </div>
+          <div
+            className="bg-white z-30 w-[206px] fixed h-[102px] p-[10px] border-[1px] border-solid border-[#616161] rounded-[5px] top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%]">
+            <p className="text-[11px] leading-[16px] text-center pb-[10px]">
+              편지 템플릿을 재생성하면 <br/>
+              현재의 템플릿은 삭제돼요. <br/>
+              정말 다시 만들까요?
+            </p>
+            <div className="flex">
+              <button
+                className="mr-[10px] w-[90px] h-[24px] bg-[#3668EA] rounded-[5px] text-white text-[11px] font-bold">다시
+                만들기
+              </button>
+              <button onClick={closePopup}
+                      className="w-[90px] h-[24px] bg-[#EEE] rounded-[5px] text-[11px] font-bold">취소
+              </button>
+            </div>
+          </div>
+        </div>
 			}
 			<div className="pt-[10px] space-y-[10px] pb-[40px]">
 				<p className="font-bold text-[24px]">편지템플릿</p>
@@ -85,10 +86,14 @@ export default function Page(props: propsType) {
 						배경색 바꾸기
 					</p>
 					<div className="flex space-x-[10px]">
-						<div className="shadow-timeline h-[44px] w-[44px] bg-amber-100 rounded-[5px] border-solid border-[1px]"/>
-						<div className="shadow-timeline h-[44px] w-[44px] bg-amber-400 rounded-[5px] border-solid border-[1px]"/>
-						<div className="shadow-timeline h-[44px] w-[44px] bg-blue-300 rounded-[5px] border-solid border-[1px]"/>
-						<div className="shadow-timeline h-[44px] w-[44px] bg-green-200 rounded-[5px] border-solid border-[1px]"/>
+						<div
+							className="shadow-timeline cursor-pointer h-[44px] w-[44px] bg-amber-100 rounded-[5px] border-solid border-[1px]"/>
+						<div
+							className="shadow-timeline cursor-pointer h-[44px] w-[44px] bg-amber-400 rounded-[5px] border-solid border-[1px]"/>
+						<div
+							className="shadow-timeline cursor-pointer h-[44px] w-[44px] bg-blue-300 rounded-[5px] border-solid border-[1px]"/>
+						<div
+							className="shadow-timeline cursor-pointer h-[44px] w-[44px] bg-green-200 rounded-[5px] border-solid border-[1px]"/>
 					</div>
 				</div>
 				<div>
@@ -97,12 +102,12 @@ export default function Page(props: propsType) {
 					</p>
 					<div className="flex space-x-[10px] text-[12px] text-center">
 						<div
-							className="shadow-timeline h-[44px] w-[44px] rounded-[5px] border-solid border-[1px] flex justify-center items-center">
+							className="shadow-timeline cursor-pointer h-[44px] w-[44px] rounded-[5px] border-solid border-[1px] flex justify-center items-center">
 							나눔 <br/>
 							스퀘어
 						</div>
 						<div
-							className="shadow-timeline h-[44px] w-[44px] rounded-[5px] border-solid border-[1px] flex justify-center items-center font-Mjo">
+							className="shadow-timeline cursor-pointer h-[44px] w-[44px] rounded-[5px] border-solid border-[1px] flex justify-center items-center font-Mjo">
 							나눔 <br/>
 							명조
 						</div>
@@ -114,11 +119,11 @@ export default function Page(props: propsType) {
 					</p>
 					<div className="flex space-x-[10px] text-[12px] text-center">
 						<div
-							className="bg-[#FFF739] shadow-timeline h-[44px] w-[44px] rounded-[5px] border-solid border-[1px] flex justify-center items-center">
+							className="bg-[#FFF739] cursor-pointer shadow-timeline h-[44px] w-[44px] rounded-[5px] border-solid border-[1px] flex justify-center items-center">
 							<Image src="/timeline/kakaoIcon.png" alt="카카오" width={21} height={19.5}/>
 						</div>
 						<div
-							className="shadow-timeline h-[44px] w-[44px] rounded-[5px] border-solid border-[1px] flex justify-center items-center font-bold">
+							className="shadow-timeline cursor-pointer h-[44px] w-[44px] rounded-[5px] border-solid border-[1px] flex justify-center items-center font-bold">
 							URL
 						</div>
 					</div>
