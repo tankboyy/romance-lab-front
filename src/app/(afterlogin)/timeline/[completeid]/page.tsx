@@ -2,7 +2,7 @@
 
 import React, {useState} from 'react';
 import Image from "next/image";
-import TextInputComponent from '../../../components/timeline/textInputComponent';
+import TextInputComponent from '../../../../components/timeline/textInputComponent';
 
 type propsType = {};
 

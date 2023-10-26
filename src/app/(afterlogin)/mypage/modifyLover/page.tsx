@@ -2,7 +2,7 @@
 
 import React, {useState} from 'react';
 import Image from "next/image";
-import InputComponent2 from "../../../components/free/InputComponent2";
+import InputComponent2 from "../../../../components/free/InputComponent2";
 
 type propsType = {};
 
@@ -17,15 +17,15 @@ export default function Page(props: propsType) {
 						<Image alt="화살표" src="/main/arrow2.png" width={7} height={14}/>
 					</div>
 					<div className="text-[24px] font-bold pb-[44px]">
-						내 정보 수정하기
+						연인 정보 수정하기
 					</div>
 					<div className="space-y-[22px]">
-						<InputComponent2 inputData={{data: nick, setData: setNick}} failText="" successText="" title="닉네임"
+						<InputComponent2 inputData={{data: nick, setData: setNick}} failText="" successText="" title="연인의 닉네임"
 														 placeHolder="사용할 닉네임을 입력해주세요"/>
-						<InputComponent2 inputData={{data: age, setData: setAge}} failText="" successText="" title="나이"
+						<InputComponent2 inputData={{data: age, setData: setAge}} failText="" successText="" title="연인의 나이"
 														 placeHolder="나이를 입력해주세요"/>
 						<div>
-							<p className="pl-[6px] pb-[12px]">성별</p>
+							<p className="pl-[6px] pb-[12px]">연인의 성별</p>
 							<div className="flex space-x-[20px] text-[14px] leading-[24px]">
 								<div className="flex items-center">
 									<input className="w-[16px] h-[16px]" name="gender" type="radio"/>
@@ -38,7 +38,6 @@ export default function Page(props: propsType) {
 							</div>
 						</div>
 					</div>
-
 				</div>
 				<div>
 					<button className="w-full h-[40px] bg-[#D9D9D9] rounded-[5px] text-white text-[12px] font-bold">

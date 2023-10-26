@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import AnalyzeComponent from "../../components/analyze/analyzeComponent";
+import AnalyzeComponent from "../../../components/analyze/analyzeComponent";
 
 type propsType = {
 	params: {

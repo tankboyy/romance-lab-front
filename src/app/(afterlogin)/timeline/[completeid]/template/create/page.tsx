@@ -1,9 +1,9 @@
 'use client';
 
 import React, {useState} from 'react';
-import TextInputComponent from '../../../../../components/timeline/textInputComponent';
-import InputComponent from "../../../../../components/timeline/InputComponent";
-import TextInputComponent2 from "../../../../../components/timeline/textInputComponent2";
+import TextInputComponent from '../../../../../../components/timeline/textInputComponent';
+import InputComponent from "../../../../../../components/timeline/InputComponent";
+import TextInputComponent2 from "../../../../../../components/timeline/textInputComponent2";
 
 type propsType = {};
 
