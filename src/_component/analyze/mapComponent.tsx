@@ -6,7 +6,7 @@ import arrow from "@/../public/main/arrow2.png";
 import PlacesSearchResultItem = kakao.maps.services.PlacesSearchResultItem;
 
 
-export default function MapComponent() {
+export default function MapComponent({onChangePlace}: { onChangePlace: (placeData: PlacesSearchResultItem) => void; }) {
 	const [info, setInfo] = useState("");
 	const [searchList, setSearchList] = useState<PlacesSearchResultItem[]>();
 	useEffect(() => {
@@ -34,8 +34,9 @@ export default function MapComponent() {
 
 
 	return (
-		<div className="flex flex-col absolute justify-center w-[calc(100%+40px)] ml-[-20px]">
-			<div className="relative bg-[#ffffff] min-h-[100vh] h-[200vh] z-30 max-w-[420px] w-[100vh] top-0 px-[20px]">
+		<div className="flex flex-col absolute justify-center ml-[-20px]">
+			<div
+				className="relative bg-[#ffffff] min-h-[100vh] h-[200vh] z-30 max-w-[400px] px-[20px] w-[100vh] top-0 right-0">
 				<div>
 					<Image alt="화살표" src={arrow}/>
 				</div>
@@ -50,7 +51,9 @@ export default function MapComponent() {
 					</div>
 					{searchList?.map((item) => (
 						<div
-							className="pr-[10px] w-full h-[50px] flex justify-between items-center py-[20px] border-solid border-b-[1px] group border-b-gray-100 hover:bg-gray-200">
+							className="pr-[10px] w-full h-[50px] flex justify-between items-center py-[20px] border-solid border-b-[1px] group border-b-gray-100 hover:bg-gray-200"
+							onClick={() => onChangePlace(item)}
+						>
 							<p className="flex flex-col px-[10px] justify-center text-[14px] w-4/6">
 								<em>
 									{item.place_name}

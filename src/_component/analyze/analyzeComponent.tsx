@@ -7,10 +7,11 @@ import TextInputComponent from "../free/textInputComponent";
 import {useRouter} from "next/navigation";
 import Link from "next/link";
 import MapComponent from "@/_component/analyze/mapComponent";
+import PlacesSearchResultItem = kakao.maps.services.PlacesSearchResultItem;
 
 export default function AnalyzeComponent() {
 	const [title, setTitle] = useState("");
-	const [place, setPlace] = useState("");
+	const [place, setPlace] = useState<PlacesSearchResultItem>();
 	const [text, setText] = useState("");
 	const [textClassify, setTextClassify] = useState("");
 	const [selectCouple, setSelectCouple] = useState("");
@@ -18,6 +19,11 @@ export default function AnalyzeComponent() {
 	const [clear, setClear] = useState(false);
 	const [open, setOpen] = useState(false);
 	const router = useRouter();
+
+	const onChangePlace = (placeData: PlacesSearchResultItem) => {
+		setPlace(placeData);
+		setOpen(false);
+	};
 
 	useEffect(() => {
 		if (title && selectType && text) {
@@ -34,8 +40,8 @@ export default function AnalyzeComponent() {
 	}
 
 	return (
-		<div className="pt-[10px] relative">
-			{open && <MapComponent/>}
+		<div className="pt-[10px]">
+			{open && <MapComponent onChangePlace={onChangePlace}/>}
 
 			<div className="pb-[34px]">
 				<p className="text-[24px] font-bold pb-[10px] leading-[32px]">
@@ -86,7 +92,8 @@ export default function AnalyzeComponent() {
 								className="w-full p-[10px] leading-3 cursor-pointer h-[30px] font-nanum focus:outline-none border-b-[1px] border-black border-solid text-[12px]"
 								onClick={() => setOpen(true)}
 							>
-								<p className="text-[#AAA]">연인과 함께했던 장소를 입력해주세요 (선택)</p>
+								{place ? <p>{place.place_name}</p> : <p className="text-[#AAA]">연인과 함께했던 장소를 입력해주세요 (선택)</p>}
+
 							</div>
 						</div>
 					</div>
