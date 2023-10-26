@@ -1,4 +1,4 @@
-import AnalyzeComponent from "../../../components/analyze/analyzeComponent";
+import AnalyzeComponent from "../../../_component/analyze/analyzeComponent";
 
 export default function Page() {
 	return (

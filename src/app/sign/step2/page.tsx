@@ -6,7 +6,7 @@ import arrow from "/public/main/arrow3.png";
 import {useRecoilState} from "recoil";
 import {userState} from "../../../recoil/atoms";
 import {useRouter} from "next/navigation";
-import InputComponent from "../../../components/free/InputComponent";
+import InputComponent from "../../../_component/free/InputComponent";
 
 type propsType = {};
 

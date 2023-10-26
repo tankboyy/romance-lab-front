@@ -2,7 +2,7 @@
 
 import React, {useState} from 'react';
 import Image from "next/image";
-import InputComponent2 from "../../../../components/free/InputComponent2";
+import InputComponent2 from "../../../../_component/free/InputComponent2";
 
 type propsType = {};
 

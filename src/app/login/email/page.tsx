@@ -3,8 +3,8 @@
 import React, {useState} from 'react';
 import Image from "next/image";
 import arrow from "/public/main/arrow3.png";
-import SignUpComponent from "../../../components/login/email/signUPComponent";
-import LoginComponent from "../../../components/login/email/loginComponent";
+import SignUpComponent from "../../../_component/login/email/signUPComponent";
+import LoginComponent from "../../../_component/login/email/loginComponent";
 
 type propsType = {};
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from "next/image";
-import MainComponent from "../../../../components/mypage/modifyCouple/mainComponent";
+import MainComponent from "../../../../_component/mypage/modifyCouple/mainComponent";
 
 type propsType = {};
 

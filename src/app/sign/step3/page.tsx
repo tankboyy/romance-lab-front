@@ -1,6 +1,6 @@
 'use client';
 import React, {useEffect, useState} from 'react';
-import InputComponent from "../../../components/free/InputComponent";
+import InputComponent from "../../../_component/free/InputComponent";
 import Image from "next/image";
 import arrow from "/public/main/arrow3.png";
 import {useRecoilState} from "recoil";
