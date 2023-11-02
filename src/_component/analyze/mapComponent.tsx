@@ -6,7 +6,9 @@ import arrow from "@/../public/main/arrow2.png";
 import PlacesSearchResultItem = kakao.maps.services.PlacesSearchResultItem;
 
 
-export default function MapComponent({onChangePlace}: { onChangePlace: (placeData: PlacesSearchResultItem) => void; }) {
+export default function MapComponent({onChangePlace}: {
+	onChangePlace: (placeData: PlacesSearchResultItem | "") => void;
+}) {
 	const [info, setInfo] = useState("");
 	const [searchList, setSearchList] = useState<PlacesSearchResultItem[]>();
 	useEffect(() => {
@@ -34,10 +36,10 @@ export default function MapComponent({onChangePlace}: { onChangePlace: (placeDat
 
 
 	return (
-		<div className="flex flex-col absolute justify-center ml-[-20px]">
+		<div className="flex flex-col absolute h-[100%] justify-center ml-[-20px] w-[calc(100%-40px)]">
 			<div
-				className="relative bg-[#ffffff] min-h-[100vh] h-[200vh] z-30 max-w-[400px] px-[20px] w-[100vh] top-0 right-0">
-				<div>
+				className="relative bg-[#ffffff] min-h-[100%] z-30 max-w-[420px] px-[20px] w-[100vw] top-0 right-0">
+				<div className="cursor-pointer" onClick={() => onChangePlace("")}>
 					<Image alt="화살표" src={arrow}/>
 				</div>
 				<div

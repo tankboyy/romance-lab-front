@@ -8,6 +8,7 @@ import Link from "next/link";
 import React from "react";
 import {usePathname} from "next/navigation";
 
+// @ts-ignore
 export default function RootLayout({children, modal}: { children: React.ReactNode, modal: React.ReactNode }) {
 	const router = usePathname().split('/')[1];
 	return (

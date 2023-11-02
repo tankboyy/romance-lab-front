@@ -8,6 +8,7 @@ import {useRouter} from "next/navigation";
 import Link from "next/link";
 import MapComponent from "@/_component/analyze/mapComponent";
 import PlacesSearchResultItem = kakao.maps.services.PlacesSearchResultItem;
+import Spinner from "@/_component/free/spinner";
 
 export default function AnalyzeComponent() {
 	const [title, setTitle] = useState("");
@@ -18,9 +19,14 @@ export default function AnalyzeComponent() {
 	const [selectType, setSelectType] = useState("");
 	const [clear, setClear] = useState(false);
 	const [open, setOpen] = useState(false);
+	const [spinOpen, setSpinOpen] = useState(false);
 	const router = useRouter();
 
-	const onChangePlace = (placeData: PlacesSearchResultItem) => {
+	const onChangePlace = (placeData: PlacesSearchResultItem | "") => {
+		if (placeData === "") {
+			setOpen(false);
+			return;
+		}
 		setPlace(placeData);
 		setOpen(false);
 	};
@@ -36,12 +42,14 @@ export default function AnalyzeComponent() {
 	}, [selectCouple, title, selectType, textClassify, text]);
 
 	function handleSubmit() {
-		router.push("/timeline/1230049");
+		setSpinOpen(prev => !prev);
+		// router.push("/timeline/1230049");
 	}
 
 	return (
 		<div className="pt-[10px]">
 			{open && <MapComponent onChangePlace={onChangePlace}/>}
+			{spinOpen && <Spinner open={spinOpen}/>}
 
 			<div className="pb-[34px]">
 				<p className="text-[24px] font-bold pb-[10px] leading-[32px]">
@@ -54,7 +62,7 @@ export default function AnalyzeComponent() {
 					AI를 이용해 분석해보세요!
 				</em>
 			</div>
-			<div className="space-y-[22px] relative">
+			<div className="space-y-[22px]">
 				<div className="pb-[12px]">
 					<SelectComponent inputData={{data: selectCouple, setData: setSelectCouple}} title="텍스트를 쓴 사람"
 													 list={['연인1', '연인2']} successText="" failText=""/>
@@ -87,7 +95,7 @@ export default function AnalyzeComponent() {
 				<div className="flex flex-col justify-center">
 					<div className="flex flex-col w-full">
 						<label className="text-left text-[14px] leading-[24px] pl-[6px] pb-[4px]">장소</label>
-						<div className="flex relative pb-[22px]">
+						<div className="flex pb-[22px]">
 							<div
 								className="w-full p-[10px] leading-3 cursor-pointer h-[30px] font-nanum focus:outline-none border-b-[1px] border-black border-solid text-[12px]"
 								onClick={() => setOpen(true)}

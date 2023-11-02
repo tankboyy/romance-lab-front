@@ -4,6 +4,7 @@ import React, {useState} from 'react';
 import TextInputComponent from '../../../../../../_component/timeline/textInputComponent';
 import InputComponent from "../../../../../../_component/timeline/InputComponent";
 import TextInputComponent2 from "../../../../../../_component/timeline/textInputComponent2";
+import Spinner from "@/_component/free/spinner";
 
 type propsType = {};
 
@@ -14,7 +15,12 @@ export default function Page(props: propsType) {
 	const [couName, setCouName] = useState("");
 	const [myName, setMyName] = useState("");
 	const [req, setReq] = useState("");
+	const [spinnerOpen, setSpinnerOpen] = useState(false);
 
+
+	function onCreate() {
+		setSpinnerOpen(true);
+	}
 
 	return (
 		<div className="max-w-[420px] min-h-[100vh] bg-white flex flex-col w-[100vw] p-[20px] pb-[50px]">
@@ -47,11 +53,14 @@ export default function Page(props: propsType) {
 															 inputData={{data: req, setData: setReq}} successText="" title="요청사항"/>
 				</div>
 				<div className="pb-[20px]">
-					<button className="w-full bg-[#D9D9D9] h-[40px] rounded-[5px] text-white text-[12px]">
+					<button className="w-full bg-[#D9D9D9] h-[40px] rounded-[5px] text-white text-[12px]"
+									onClick={onCreate}
+					>
 						제출하기
 					</button>
 				</div>
 			</div>
+			<Spinner open={spinnerOpen}/>
 		</div>
 	);
 }

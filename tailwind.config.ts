@@ -34,12 +34,21 @@ const config: Config = {
 					to: {
 						opacity: '0',
 					}
+				},
+				'rotation': {
+					from: {
+						transform: 'rotate(0deg)'
+					},
+					to: {
+						transform: 'rotate(360deg)'
+					}
 				}
 			},
 			animation: {
 				'fadeIn': 'fade-in 0.5s ease-out',
 				'transition': 'transition 0.5s ease-out',
-				'transition2': 'transition2 0.5s ease-in'
+				'transition2': 'transition2 0.5s ease-in',
+				'rotation': 'rotation 1s linear infinite',
 			},
 			fontFamily: {
 				Mjo: ['Nanum Myeongjo', "sans-serif"]

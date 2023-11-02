@@ -2,8 +2,10 @@
 
 import React, {useState} from "react";
 import MainComponent from "../../_component/mainComponent";
+import Spinner from "@/_component/free/spinner";
 
 export default function Home() {
+
 
 	return (
 		<div

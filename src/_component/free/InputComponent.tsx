@@ -38,7 +38,7 @@ export default function InputComponent(props: propsType) {
 		<div className="flex flex-col justify-center">
 			<div className="flex flex-col w-full">
 				<label className="text-left text-[14px] leading-[24px] pl-[6px] pb-[4px]">{props.title}</label>
-				<div className="flex relative pb-[22px]">
+				<div className="flex pb-[22px]">
 					<input
 						disabled={props.disabled && props.disabled}
 						maxLength={props.max}
