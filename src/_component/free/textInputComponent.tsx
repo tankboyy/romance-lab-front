@@ -16,11 +16,11 @@ type propsType = {
 export default function InputComponent(props: propsType) {
 
 	return (
-		<div className="flex flex-col justify-center pb-[62px]">
+		<div className="flex flex-col justify-center pb-[62px] relative">
 			<div className="flex flex-col w-full">
 				<label className="text-left text-[14px] pl-[4px] pb-[10px]">{props.title}</label>
 				<div
-					className="flex border-[1px] border-[#AAA] rounded-[5px] focus-within:border-[#000] border-solid pt-[12px] pl-[12px] pr-[8px]">
+					className="flex border-[1px] border-[#AAA] rounded-[5px] focus-within:border-[#000] z-20 border-solid pt-[12px] pl-[12px] pr-[8px]">
 					<textarea
 						id="customTextArea"
 						placeholder={props.placeHolder && props.placeHolder}

@@ -34,7 +34,7 @@ export default function SelectComponent(props: propsType) {
 	return (
 		<div className="flex flex-col justify-center">
 			<label className="text-[14px] pl-[6px] pb-[10px]">{props.title}</label>
-			<div className="">
+			<div className="relative">
 				<div
 					className="w-full cursor-pointer items-center h-[30px] border-black border-solid border-b-[1px] flex justify-between"
 					onClick={() => setOpen(prev => !prev)}>
