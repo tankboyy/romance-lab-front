@@ -26,7 +26,7 @@ export default function Page(props: propsType) {
 	}, [title, subject, couName, myName]);
 
 	function onCreate() {
-		setSpinnerOpen(true);
+		setSpinnerOpen(prev => !prev);
 	}
 
 
@@ -86,7 +86,7 @@ export default function Page(props: propsType) {
 					</button>
 				</div>
 			</div>
-			<Spinner open={spinnerOpen}/>
+			<Spinner open={spinnerOpen} text="AI로 편지템플릿을 생성하고 있어요"/>
 		</div>
 	);
 }

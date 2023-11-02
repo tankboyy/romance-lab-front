@@ -49,7 +49,7 @@ export default function AnalyzeComponent() {
 	return (
 		<div className="pt-[10px]">
 			{open && <MapComponent onChangePlace={onChangePlace}/>}
-			{spinOpen && <Spinner open={spinOpen}/>}
+			{spinOpen && <Spinner open={spinOpen} text="AI로 텍스트를 분석하고 있어요."/>}
 
 			<div className="pb-[34px]">
 				<p className="text-[24px] font-bold pb-[10px] leading-[32px]">

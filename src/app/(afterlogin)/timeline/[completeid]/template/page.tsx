@@ -8,6 +8,11 @@ type propsType = {};
 export default function Page(props: propsType) {
 
 	const [modalOpen, setModalOpen] = useState(false);
+	const [bgC, setBgC] = useState("red-50");
+
+	const onChangeBgC = (bgc: string) => {
+		setBgC(bgc);
+	};
 
 	const popup = () => {
 		setModalOpen(true);
@@ -54,7 +59,7 @@ export default function Page(props: propsType) {
 					AI가 생성한 편지 템플릿이에요.
 				</p>
 			</div>
-			<div className="w-[calc(100%+40px)] ml-[-20px] bg-red-50 p-[20px] mb-[40px]">
+			<div className={`w-[calc(100%+40px)] ml-[-20px] bg-${bgC} p-[20px] mb-[40px]`}>
 				<p className="text-[14px] text-center pb-[20px]">
 					세상에서 가장 아름다운 우리 금쪽이에게...
 				</p>
@@ -87,12 +92,16 @@ export default function Page(props: propsType) {
 					</p>
 					<div className="flex space-x-[10px]">
 						<div
+							onClick={() => setBgC("amber-100")}
 							className="shadow-timeline cursor-pointer h-[44px] w-[44px] bg-amber-100 rounded-[5px] border-solid border-[1px]"/>
 						<div
+							onClick={() => setBgC("amber-400")}
 							className="shadow-timeline cursor-pointer h-[44px] w-[44px] bg-amber-400 rounded-[5px] border-solid border-[1px]"/>
 						<div
+							onClick={() => setBgC("blue-300")}
 							className="shadow-timeline cursor-pointer h-[44px] w-[44px] bg-blue-300 rounded-[5px] border-solid border-[1px]"/>
 						<div
+							onClick={() => setBgC("green-200")}
 							className="shadow-timeline cursor-pointer h-[44px] w-[44px] bg-green-200 rounded-[5px] border-solid border-[1px]"/>
 					</div>
 				</div>

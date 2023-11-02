@@ -8,8 +8,7 @@ import Link from "next/link";
 import React from "react";
 import {usePathname} from "next/navigation";
 
-// @ts-ignore
-export default function RootLayout({children, modal}: { children: React.ReactNode, modal: React.ReactNode }) {
+export default function Layout({children}: { children: React.ReactNode, modal: React.ReactNode }) {
 	const router = usePathname().split('/')[1];
 	return (
 		<html lang="ko">
@@ -18,7 +17,6 @@ export default function RootLayout({children, modal}: { children: React.ReactNod
 		<body className="bg-[#f5f5f5] flex h-full justify-center items-center m-auto">
 		<AuthContext>
 			<RecoilRoot>
-				{modal}
 				{children}
 				<div
 					className="z-50 border-t-[1px] p-0 border-[#E2E2E2] border-solid mx-auto fixed bottom-0 left-0 right-0 max-w-[420px] h-[50px] text-[11px] bg-white">
