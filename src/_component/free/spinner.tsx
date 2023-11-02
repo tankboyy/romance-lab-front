@@ -28,7 +28,7 @@ export default function Spinner({open}: { open: boolean }) {
 					<div className="sk-circle sk-circle8"></div>
 					<div className="sk-circle sk-circle9"></div>
 				</div>
-				<div className="text-center relative top-[50%] translate-y-[30px] font-bold text-[14px] z-30">
+				<div className="text-center relative top-[50%] translate-y-[30px] font-bold text-[16px] z-30 leading-[12px]">
 					AI로 텍스트를 분석하고 있어요.
 				</div>
 			</div>
