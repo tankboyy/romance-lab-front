@@ -88,8 +88,7 @@ export default function Home(props: propsType) {
 				<div>
 					<Link href="login/email"
 								className="cursor-pointer text-[14px] text-center text-[#AAAAAA] underline underline-offset-2"
-					>이메일로
-						계속하기</Link>
+					>이메일로 계속하기</Link>
 				</div>
 			</div>
 		</div>
