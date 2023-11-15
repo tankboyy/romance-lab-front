@@ -31,6 +31,7 @@ footer, header, hgroup, menu, nav, section {
     display: block;
 }
 
+
 body {
     line-height: 1;
 }
@@ -96,6 +97,12 @@ input::-webkit-inner-spin-button {
     appearance: none;
     -moz-appearance: none;
     -webkit-appearance: none;
+}
+
+@layer base {
+    main {
+        @apply max-w-[420px] min-h-[100vh] bg-white flex flex-col w-[100vw] h-[100vh] justify-between pb-[36px]
+    }
 }
 
 @layer compoenets {
