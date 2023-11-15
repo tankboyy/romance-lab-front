@@ -1,5 +1,6 @@
 import React, {forwardRef, useEffect, useRef, useState} from 'react';
 import InputComponent from "../../free/InputComponent";
+import {useRouter} from "next/navigation";
 
 type propsType = {};
 export default function SignUpComponent(props: propsType) {
@@ -8,6 +9,7 @@ export default function SignUpComponent(props: propsType) {
 	const [email, setEmail] = useState<string>("");
 	const [password, setPassword] = useState<string>("");
 	const [authNumber, setAuthNumber] = useState<string>("");
+	const router = useRouter();
 
 	useEffect(() => {
 		if (/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email) &&
@@ -17,12 +19,30 @@ export default function SignUpComponent(props: propsType) {
 		} else setClear(false);
 	}, [email, password, authNumber]);
 
-	const onAuthReq = () => {
-		setAuth(prev => !prev);
+	const onAuthReq = async () => {
+		setAuth(true);
+		// console.log(`http://localhost:8080/api/members/emails/verification-requests?email=${email}`);
+		await fetch(`http://localhost:8080/api/members/emails/verification-requests?email=${email}`);
 	};
 
-	const handleSignUp = () => {
-
+	const handleSignUp = async () => {
+		router.replace('/sign/step1');
+		await fetch(`http://localhost:8080/api/members/join`, {
+			method: "POST",
+			body: JSON.stringify({
+				email: email,
+				password: password,
+				nickname: '',
+				age: 25
+			})
+		})
+			.then(res => {
+				router.replace('/sign/step1');
+			})
+			.catch(err => {
+				console.log(err);
+				alert("다시 시도해주세요.");
+			});
 	};
 
 
@@ -50,16 +70,16 @@ export default function SignUpComponent(props: propsType) {
 				</div>
 				{
 					auth &&
-            <div className={`animate-transition`}>
+          <div className={`animate-transition`}>
 
-                <InputComponent inputData={{data: authNumber, setData: setAuthNumber}} placeHolder="인증번호를 입력해주세요"
-                                type="number"
-                                checks={[{
-																	condition: /^123456$/,
-																	str: "유효하지 않은 인증번호에요"
-																}]}
-                                title="인증번호" successText={authNumber === "123456" ? "이메일이 인증됐어요" : ""}/>
-            </div>
+            <InputComponent inputData={{data: authNumber, setData: setAuthNumber}} placeHolder="인증번호를 입력해주세요"
+                            type="number"
+                            checks={[{
+															condition: /^123456$/,
+															str: "유효하지 않은 인증번호에요"
+														}]}
+                            title="인증번호" successText={authNumber === "123456" ? "이메일이 인증됐어요" : ""}/>
+          </div>
 				}
 				<InputComponent placeHolder="비밀번호를 입력해주세요" inputData={{data: password, setData: setPassword}} title="비밀번호"
 												type="password"
