@@ -12,7 +12,7 @@ export default function Page(props: propsType) {
 	const [step, setStep] = useState<"회원가입" | "로그인">("회원가입");
 
 	return (
-		<div className="max-w-[420px] min-h-[100vh] bg-white flex flex-col w-[100vw] h-[100vh] p-[20px]">
+		<main className="p-[20px]">
 			<div className="mb-[20px]">
 				<button>
 					<Image alt="화살표" src={arrow}/>
@@ -32,6 +32,6 @@ export default function Page(props: propsType) {
 				<SignUpComponent/>
 				: <LoginComponent/>
 			}
-		</div>
+		</main>
 	);
 }
