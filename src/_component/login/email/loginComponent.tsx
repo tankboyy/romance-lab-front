@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import InputComponent from "../../free/InputComponent";
+import {useRouter} from "next/navigation";
 
 type propsType = {};
 
@@ -8,9 +9,23 @@ export default function LoginComponent(props: propsType) {
 	const [email, setEmail] = useState<string>("");
 	const [password, setPassword] = useState<string>("");
 	const [clear, setClear] = useState(false);
+	const router = useRouter();
 
-	const handleLogin = () => {
-		console.log('hi');
+	const handleLogin = async () => {
+		await fetch("http://localhost:8080/api/login", {
+			method: "POST",
+			body: JSON.stringify({
+				email: email,
+				password: password
+			})
+		})
+			.then(res => {
+				router.push('/');
+			})
+			.catch(err => {
+				console.log(err);
+				alert("다시 시도해주세요 ");
+			});
 	};
 
 	useEffect(() => {
@@ -45,7 +60,7 @@ export default function LoginComponent(props: propsType) {
 					disabled={!clear}
 					onClick={handleLogin}
 				>
-					<p> 가입 완료하기</p>
+					로그인하기
 				</button>
 			</div>
 		</div>

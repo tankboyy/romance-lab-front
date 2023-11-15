@@ -12,8 +12,9 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
 	const router = usePathname().split('/')[1];
 	return (
 		<html lang="ko">
+
 		<body className="bg-[#f5f5f5] flex h-full justify-center items-center m-auto">
-		
+
 		<AuthContext>
 			<RecoilRoot>
 				{children}
