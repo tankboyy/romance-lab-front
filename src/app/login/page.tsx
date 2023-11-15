@@ -8,54 +8,13 @@ import Link from "next/link";
 import {getProviders, signIn, signOut, useSession} from "next-auth/react";
 import {usePathname} from "next/navigation";
 
-type propsType = {};
-
-const ColorButton = (props: any) => {
-	return <button onClick={props.onClick}>{props.text}</button>;
-};
-
-
-export default function Home(props: propsType) {
-
-	const pathName = usePathname();
-	const {data: session} = useSession();
-
-	const [providers, setProviders] = useState(null);
-
-	useEffect(() => {
-		(async () => {
-			const res: any = await getProviders();
-			console.log(res);
-			setProviders(res);
-		})();
-	}, []);
-
-
-	const kakaoInit = () => {
-		const kakao = (window as any).Kakao;
-		console.log(kakao.isInitialized());
-		if (!kakao.isInitialized()) kakao.init(process.env.NEXT_PUBLIC_KAKAO_KEY);
-		return kakao;
-	};
-
-	const kakaoLogin = async () => {
-		const kakao = kakaoInit();
-
-		kakao.API.request({
-			url: '/v2/user/me',
-			success: (res: any) => {
-				console.log(res);
-				// if(res.kakao_account.email)
-			},
-			fail: (err: any) => {
-				console.log(err);
-			}
-		});
-	};
-
+export default function Home() {
+	async function onClickGoogleLogin() {
+		await fetch('http://localhost:8080/api/oauth/kakao?code=h6L10mRYNWr_vwJJ8a_SDZ1JI38eoV7NGmWraRYgCj1y6gAAAYo6shEd');
+	}
 
 	return (
-		<div className="max-w-[420px] min-h-[100vh] bg-white flex flex-col w-[100vw] h-[100vh] justify-between pb-[36px]">
+		<main>
 			<div className="text-center py-[100px] flex flex-col justify-center items-center text-[20px] my-auto">
 				<Image className="mb-[20px]" alt="메인" src={loginImage}/>
 				<p className="text-[24px] pb-[10px] font-extrabold">애정연구소</p>
@@ -64,10 +23,7 @@ export default function Home(props: propsType) {
 			<div className="flex flex-col pb-[16px] items-center">
 				<div className="w-full px-[20px]">
 					<button
-						onClick={() => signIn('google', {
-							redirect: false,
-							callbackUrl: '/login/email'
-						})}
+						onClick={onClickGoogleLogin}
 						className="flex h-[44px] justify-center items-center rounded-[5px] border-[1px] border-[solid] border-[#E9E9E9] bg-[#FFF] shadow-login mb-[14px] w-full">
 						<Image src={googleIcon} alt="구글"/>
 						<p className="ml-[6px] font-bold text-[16px]">구글로 계속하기</p>
@@ -91,6 +47,6 @@ export default function Home(props: propsType) {
 					>이메일로 계속하기</Link>
 				</div>
 			</div>
-		</div>
+		</main>
 	);
 }
