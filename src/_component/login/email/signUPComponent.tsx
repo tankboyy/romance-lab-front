@@ -9,11 +9,15 @@ export default function SignUpComponent(props: propsType) {
 	const [email, setEmail] = useState<string>("");
 	const [password, setPassword] = useState<string>("");
 	const [authNumber, setAuthNumber] = useState<string>("");
+	const [successNumber, setSuccessNumber] = useState(false);
+	const [authText, setAuthText] = useState("");
 	const router = useRouter();
+
+	const authNumberDivRef = useRef(null);
 
 	useEffect(() => {
 		if (/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email) &&
-			/^123456$/.test(authNumber) && /^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[\W_]).{8,}$/.test(password)
+			successNumber && /^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[\W_]).{8,}$/.test(password)
 		) {
 			setClear(true);
 		} else setClear(false);
@@ -21,23 +25,59 @@ export default function SignUpComponent(props: propsType) {
 
 	const onAuthReq = async () => {
 		setAuth(true);
-		// console.log(`http://localhost:8080/api/members/emails/verification-requests?email=${email}`);
-		await fetch(`http://localhost:8080/api/members/emails/verification-requests?email=${email}`);
+		await fetch(`http://localhost:8080/api/members/emails/verification/send?email=${email}`, {
+			method: "POST"
+		})
+			.then(res => res.json())
+			.then(res => {
+				console.log(res);
+			});
 	};
 
+	useEffect(() => {
+		async function checkAuthNumber() {
+			await fetch(`http://localhost:8080/api/members/emails/verification/check?email=${email}&code=${authNumber}`, {
+				method: "GET",
+				headers: {
+					"Content-Type": "application/json"
+				},
+			}).then(res => res.json())
+				.then(res => {
+					console.log(res.message, "res.message");
+					if (res.message === '성공') {
+						setSuccessNumber(() => true);
+						setAuthText("이메일이 인증됐습니다");
+					}
+				});
+		}
+
+		if (authNumber.length === 6) {
+			checkAuthNumber();
+		} else setSuccessNumber(false);
+	}, [authNumber, successNumber]);
+
+
 	const handleSignUp = async () => {
-		router.replace('/sign/step1');
 		await fetch(`http://localhost:8080/api/members/join`, {
 			method: "POST",
+			headers: {
+				"Content-Type": "application/json"
+			},
 			body: JSON.stringify({
 				email: email,
 				password: password,
-				nickname: '',
-				age: 25
 			})
 		})
+			.then(res => res.json())
 			.then(res => {
-				router.replace('/sign/step1');
+				// 로그인성공
+				if (res.memberCode) {
+					localStorage.setItem("memberCode", res.memberCode);
+					localStorage.setItem("memberEmail", res.email);
+					router.replace('/sign/step1');
+				} else if (res.code === "ALREADY_MEMBER") {
+					alert("이미 가입된 이메일입니다.");
+				}
 			})
 			.catch(err => {
 				console.log(err);
@@ -63,6 +103,7 @@ export default function SignUpComponent(props: propsType) {
 						className={`absolute bottom-[31px] right-0 transition-all duration-300 ${/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email) ? "opacity-100" : "opacity-0"}`}>
 						<button className="font-bold text-[11px] text-white bg-[#3668EA] w-[50px] h-[20px] rounded-[5px]"
 										onClick={onAuthReq}
+										disabled={auth}
 						>
 							인증요청
 						</button>
@@ -75,10 +116,12 @@ export default function SignUpComponent(props: propsType) {
             <InputComponent inputData={{data: authNumber, setData: setAuthNumber}} placeHolder="인증번호를 입력해주세요"
                             type="number"
                             checks={[{
-															condition: /^123456$/,
+															condition: !successNumber,
 															str: "유효하지 않은 인증번호에요"
 														}]}
-                            title="인증번호" successText={authNumber === "123456" ? "이메일이 인증됐어요" : ""}/>
+                            title="인증번호" successText={
+							successNumber ? "이메일이 인증됐어요" : undefined
+						}/>
           </div>
 				}
 				<InputComponent placeHolder="비밀번호를 입력해주세요" inputData={{data: password, setData: setPassword}} title="비밀번호"

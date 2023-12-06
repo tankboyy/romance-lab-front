@@ -5,16 +5,25 @@ import Image from "next/image";
 import InputComponent2 from "../../../_component/free/InputComponent2";
 import loginImage from "../../../../public/login/icon.png";
 import loveImage from "../../../../public/main/love.png";
+import {useRouter} from "next/navigation";
 
 type propsType = {};
 
 export default function Page(props: propsType) {
 	const [nick, setNick] = useState("");
 	const [age, setAge] = useState("");
+	const router = useRouter();
+
+	function getcode() {
+		navigator.clipboard.writeText("01AB97")
+			.then(() => {
+				alert("클립보드에 복사되었습니다.");
+			});
+	}
 
 	return (
-		<div className="max-w-[420px] max-h-max min-h-[100vh] bg-white flex flex-col p-[20px] w-[100vw]">
-			<div className="py-[54px]">
+		<main className="p-[20px] h-full pb-[40px]">
+			<div className="pt-[54px]">
 				<div className="flex flex-col items-center pb-[62px]">
 					<em className="text-[12px]">우리가 사랑한지 <em className="text-[13px] font-bold">101</em>일 째</em>
 					<div className="flex items-center text-[16px] font-bold">
@@ -29,7 +38,8 @@ export default function Page(props: propsType) {
 				<div className="border-y-[1px] border-solid border-[#777] py-[10px] px-[10px] mb-[10px]">
 					<div className="flex justify-between items-center text-center pb-[10px]">
 						<em className="text-[14px]">회원 정보</em>
-						<em className="text-[11px] underline">커플 정보 수정</em>
+						<em className="text-[11px] underline cursor-pointer" onClick={() => router.push("/mypage/modifyCouple")}>커플
+							정보 수정</em>
 					</div>
 
 					<div className="flex justify-between items-center py-[10px] border-b-[1px] border-solid border-[#E2E2E2]">
@@ -41,7 +51,8 @@ export default function Page(props: propsType) {
 							</div>
 							<em className="text-[11px] text-[#AAA]">카카오톡 로그인</em>
 						</div>
-						<em className="text-[11px] underline">회원 정보 수정</em>
+						<em className="text-[11px] underline cursor-pointer"
+								onClick={() => router.push("/mypage/modifyProfile")}>회원 정보 수정</em>
 					</div>
 
 					<div className="flex justify-between items-center py-[10px]">
@@ -53,7 +64,8 @@ export default function Page(props: propsType) {
 							</div>
 							<em className="text-[11px] text-[#AAA]">직접 입력</em>
 						</div>
-						<em className="text-[11px] underline">회원 정보 수정</em>
+						<em className="text-[11px] underline cursor-pointer"
+								onClick={() => router.push("/mypage/modifyLover")}>회원 정보 수정</em>
 					</div>
 
 				</div>
@@ -63,6 +75,7 @@ export default function Page(props: propsType) {
 						<em className="text-center text-[13px] leading-[20px]">내 연인과 함께 연구결과를 <br/>
 							공유해보세요!</em>
 						<div
+							onClick={getcode}
 							className="border-b border-solid border-[#E2E2E2] w-[130px] text-center py-[5px] text-[14px] cursor-pointer">
 							01AB97
 						</div>
@@ -79,7 +92,7 @@ export default function Page(props: propsType) {
 						<em className="text-center text-[13px] leading-[20px]">내 연인의 회원코드를<br/>
 							입력하세요</em>
 						<input
-							className="border-b border-solid border-[#E2E2E2] w-[130px] text-center py-[5px] text-[14px] text-[#AAA]
+							className="border-b border-solid border-[#E2E2E2] w-[130px] text-center py-[5px] text-[14px]
 							outline-none
 							"
 							placeholder="회원코드"
@@ -211,6 +224,6 @@ export default function Page(props: propsType) {
 			{/*	</div>*/}
 
 			{/*</div>*/}
-		</div>
+		</main>
 	);
 }

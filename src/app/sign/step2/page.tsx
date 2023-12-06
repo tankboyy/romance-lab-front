@@ -76,7 +76,8 @@ export default function Page(props: propsType) {
 	};
 
 	return (
-		<div className="flex flex-col justify-between h-[100vh]">
+		<div className="m-[0_20px_22px] h-[100dvh] flex flex-col justify-between">
+
 			<div>
 				<div className="text-[14px] mb-[40px] space-y-[10px] leading-[32px]">
 					<p className="text-[24px] font-bold">
@@ -114,7 +115,6 @@ export default function Page(props: propsType) {
             <div className="relative">
               <InputComponent inputData={{data: auth, setData: setAuthCode}}
                               placeHolder="연인의 회원코드를 입력해주세요"
-                              type="number"
                               max={6}
                               title="회원코드"
                               successText={`${checking ? "회원코드가 인증됐어요" : ""}`}

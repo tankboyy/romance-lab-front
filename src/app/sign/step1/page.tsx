@@ -42,7 +42,7 @@ export default function Page(props: propsType) {
 		document.getElementById(name)?.click();
 	};
 	return (
-		<div className="flex flex-col justify-between h-[100vh]">
+		<div className="m-[0_20px_22px] h-[100dvh] flex flex-col justify-between">
 			<div>
 				<div className="pb-[44px]">
 					<p className="font-bold leading-[32px] text-[24px] pb-[10px]">
@@ -126,8 +126,6 @@ export default function Page(props: propsType) {
 					<p>다음 단계로</p>
 				</button>
 			</div>
-
-
 		</div>
 	);
 }

@@ -23,15 +23,24 @@ export default function MapComponent(props: propsType) {
 
 				// @ts-ignore
 				const map = new window.kakao.maps.Map(container, options);
+
+				// 기본값
 				const marker = new window.kakao.maps.Marker({
 					position: new window.kakao.maps.LatLng(33.55635, 126.795841),
 					image: new window.kakao.maps.MarkerImage('/timeline/marker.png', new kakao.maps.Size(40, 40)),
 					clickable: true,
 				});
-				const marker2 = new window.kakao.maps.Marker({
-					position: new window.kakao.maps.LatLng(33.55635, 126.795811),
-					image: new window.kakao.maps.MarkerImage('/timeline/marker.png', new kakao.maps.Size(60, 40)),
-				});
+
+				// 기본값 내 위치로
+				if (window.navigator.geolocation) {
+					navigator.geolocation.getCurrentPosition((position) => {
+						const lat = position.coords.latitude;
+						const lon = position.coords.longitude;
+						const locPosition = new kakao.maps.LatLng(lat, lon);
+						marker.setPosition(locPosition);
+					});
+				}
+
 				marker.setMap(map);
 				window.kakao.maps.event.addListener(marker, 'click', () => {
 					setOpen((prev) => {

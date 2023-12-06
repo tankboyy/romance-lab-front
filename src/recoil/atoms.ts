@@ -16,3 +16,13 @@ export const userState = atom({
 		date: ''
 	}
 });
+
+export const userLogin = atom({
+	key: 'userLogin',
+	default: {
+		auth: "",
+		refresh: "",
+		state: false
+	}
+});
+

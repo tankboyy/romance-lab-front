@@ -1,6 +1,10 @@
+'use client';
+
 import React, {useEffect, useState} from 'react';
 import InputComponent from "../../free/InputComponent";
 import {useRouter} from "next/navigation";
+import Cookies from "js-cookie";
+import {createRecordFromThenable} from "next/dist/client/components/router-reducer/create-record-from-thenable";
 
 type propsType = {};
 
@@ -12,20 +16,27 @@ export default function LoginComponent(props: propsType) {
 	const router = useRouter();
 
 	const handleLogin = async () => {
-		await fetch("http://localhost:8080/api/login", {
+		console.log(email, password);
+		await fetch("/api/login", {
 			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+
+			},
 			body: JSON.stringify({
 				email: email,
 				password: password
-			})
-		})
-			.then(res => {
-				router.push('/');
-			})
-			.catch(err => {
-				console.log(err);
-				alert("다시 시도해주세요 ");
-			});
+			}),
+		}).then(async (res) => {
+			const data = await res.json();
+			if (data.message === "로그인 실패") {
+				alert("로그인 실패");
+				return;
+			} else if (data.message === "로그인 성공") {
+				localStorage.setItem("token", res.headers.get("Authorization")!);
+				router.push("/");
+			}
+		});
 	};
 
 	useEffect(() => {

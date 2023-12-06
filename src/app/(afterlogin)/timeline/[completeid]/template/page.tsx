@@ -2,6 +2,7 @@
 
 import React, {useState} from 'react';
 import Image from "next/image";
+import BackNav from "@/_component/free/backNav";
 
 type propsType = {};
 
@@ -9,6 +10,7 @@ export default function Page(props: propsType) {
 
 	const [modalOpen, setModalOpen] = useState(false);
 	const [bgC, setBgC] = useState("red-50");
+	const [bgG, setBgG] = useState(false);
 
 	const onChangeBgC = (bgc: string) => {
 		setBgC(bgc);
@@ -25,7 +27,7 @@ export default function Page(props: propsType) {
 	};
 
 	return (
-		<div className="max-w-[420px] max-h-max min-h-[100vh] bg-white flex flex-col p-[20px] pb-[50px] relative">
+		<main className="h-full px-[20px]">
 			{
 				modalOpen &&
         <div>
@@ -52,6 +54,9 @@ export default function Page(props: propsType) {
           </div>
         </div>
 			}
+			<div className="pt-[20px] pb-[10px]">
+				<BackNav/>
+			</div>
 			<div className="pt-[10px] space-y-[10px] pb-[40px]">
 				<p className="font-bold text-[24px]">편지템플릿</p>
 				<p className="leading-[24px] text-[14px]">
@@ -63,7 +68,7 @@ export default function Page(props: propsType) {
 				<p className="text-[14px] text-center pb-[20px]">
 					세상에서 가장 아름다운 우리 금쪽이에게...
 				</p>
-				<p className="leading-[18px] text-[12px] pb-[20px]">
+				<em className={`"leading-[18px] text-[12px] pb-[20px] ${bgG ? "font-Mjo" : ""}`}>
 					세상에서 제일 힘들고도 행복한게 바로 사랑인가봐..
 					당신이 울거나 지칠때는 정말 힘들지만
 					당신이 웃으면서 사랑한다고 하면 세상 다 가진것보다 행복해
@@ -80,7 +85,7 @@ export default function Page(props: propsType) {
 					나의 공주님!!
 					사랑한다 금쪽아..
 					당신의 반쪽인 은쪽이가..
-				</p>
+				</em>
 				<p className="text-[12px] text-right">
 					From. 은쪽이
 				</p>
@@ -111,12 +116,17 @@ export default function Page(props: propsType) {
 					</p>
 					<div className="flex space-x-[10px] text-[12px] text-center">
 						<div
-							className="shadow-timeline cursor-pointer h-[44px] w-[44px] rounded-[5px] border-solid border-[1px] flex justify-center items-center">
+							className="shadow-timeline cursor-pointer h-[44px] w-[44px] rounded-[5px] border-solid border-[1px] flex justify-center items-center"
+							onClick={() => setBgG(false)}
+						>
 							나눔 <br/>
 							스퀘어
 						</div>
 						<div
-							className="shadow-timeline cursor-pointer h-[44px] w-[44px] rounded-[5px] border-solid border-[1px] flex justify-center items-center font-Mjo">
+							className="shadow-timeline cursor-pointer h-[44px] w-[44px] rounded-[5px] border-solid border-[1px] flex justify-center items-center font-Mjo"
+							onClick={() => setBgG(true)}
+						>
+
 							나눔 <br/>
 							명조
 						</div>
@@ -159,6 +169,6 @@ export default function Page(props: propsType) {
 					</div>
 				</div>
 			</div>
-		</div>
+		</main>
 	);
 }

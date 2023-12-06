@@ -9,7 +9,7 @@ type propsType = {};
 
 export default function Page(props: propsType) {
 	return (
-		<div className="max-w-[420px] min-h-[100vh] bg-white flex flex-col w-[100vw] p-[20px] pb-[50px]">
+		<main className="p-[20px] pb-[50px] h-full">
 			<div className="pt-[10px]">
 				<div className="space-y-[40px]">
 					<p className="flex flex-col leading-[32px] font-bold">
@@ -101,6 +101,6 @@ export default function Page(props: propsType) {
 				</div>
 			</div>
 
-		</div>
+		</main>
 	);
 }

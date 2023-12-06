@@ -20,7 +20,7 @@ export default function InputComponent(props: propsType) {
 			<div className="flex flex-col w-full">
 				<label className="text-left text-[14px] pl-[4px] pb-[10px]">{props.title}</label>
 				<div
-					className="flex border-[1px] border-[#AAA] rounded-[5px] focus-within:border-[#000] z-20 border-solid pt-[12px] pl-[12px] pr-[8px]">
+					className="flex border-[1px] border-[#AAA] rounded-[5px] focus-within:border-[#000] z-15 border-solid pt-[12px] pl-[12px] pr-[8px]">
 					<textarea
 						id="customTextArea"
 						placeholder={props.placeHolder && props.placeHolder}

@@ -101,7 +101,7 @@ input::-webkit-inner-spin-button {
 
 @layer base {
     main {
-        @apply max-w-[420px] min-h-[100vh] bg-white flex flex-col w-[100vw] h-[100vh] justify-between pb-[36px]
+        @apply max-w-[420px] min-h-[100dvh] bg-white flex flex-col w-[100vw] mx-auto h-screen
     }
 }
 

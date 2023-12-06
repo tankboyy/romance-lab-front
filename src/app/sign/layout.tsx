@@ -19,15 +19,17 @@ export default function RootLayout({
 
 	return (
 		<html lang="en">
-		<body>
-		<div className="max-w-[420px] min-h-screen bg-white flex flex-col w-[100vw] h-[100vh] p-[20px]">
-			<div className="mb-[26px]">
+		<body
+			className="bg-[#f5f5f5]"
+		>
+		<main>
+			<div className="mb-[26px] m-[20px]">
 				<button onClick={onPageBack}>
 					<Image alt="화살표" src={arrow}/>
 				</button>
 			</div>
 			{children}
-		</div>
+		</main>
 		</body>
 		</html>
 	);

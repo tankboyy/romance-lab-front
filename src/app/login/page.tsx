@@ -14,7 +14,7 @@ export default function Home() {
 	}
 
 	return (
-		<main>
+		<main className="py-[20px]">
 			<div className="text-center py-[100px] flex flex-col justify-center items-center text-[20px] my-auto">
 				<Image className="mb-[20px]" alt="메인" src={loginImage}/>
 				<p className="text-[24px] pb-[10px] font-extrabold">애정연구소</p>

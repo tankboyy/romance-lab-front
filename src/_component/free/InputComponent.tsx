@@ -1,10 +1,10 @@
-import React, {useEffect, useState} from 'react';
+import React, {forwardRef, useEffect, useState} from 'react';
 
 type propsType = {
 	ref?: React.MutableRefObject<any>
 	title: string
 	type?: string
-	successText: string
+	successText: string | undefined
 	setAuth?: ((value: (((prevState: boolean) => boolean) | boolean)) => void)
 	placeHolder?: string
 	inputData: {
@@ -14,11 +14,15 @@ type propsType = {
 	disabled?: boolean
 	min?: number
 	max?: number
-	checks?: { condition: RegExp | boolean, str: string }[]
+	checks?: {
+		condition: RegExp | boolean,
+		str: string
+	}[]
+	onChangeF?: any
 };
 
 
-export default function InputComponent(props: propsType) {
+const InputComponent = forwardRef((props: propsType, ref) => {
 	useEffect(() => {
 		if (props.checks?.length) {
 			const errMes: string[] = [];
@@ -32,7 +36,7 @@ export default function InputComponent(props: propsType) {
 			});
 			setErrMes(errMes);
 		}
-	}, [props.inputData.data]);
+	}, [props.inputData.data, props.successText]);
 	const [errMes, setErrMes] = useState<string[]>([]);
 	return (
 		<div className="flex flex-col justify-center">
@@ -57,13 +61,13 @@ export default function InputComponent(props: propsType) {
 						{
 							errMes.length !== 0 ?
 								<p className="text-[#E84E4E] text-[12px]">{errMes[0]}</p> :
-								props.successText ?
-									<p className="text-[#3668EA] text-[12px]">{props.successText}</p> :
-									null
+								<p className="text-[#3668EA] text-[12px]">{props.successText}</p>
 						}
 					</div>
 				</div>
 			</div>
 		</div>
 	);
-}
+});
+
+export default InputComponent;

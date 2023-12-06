@@ -22,7 +22,7 @@ export default function Page(props: propsType) {
 		} else setClear(false);
 	}, [nick, age, gender, date]);
 
-	const handleLastStep = () => {
+	const handleLastStep = async () => {
 		setUser((prev) => {
 			return {
 				me: {
@@ -38,15 +38,25 @@ export default function Page(props: propsType) {
 				date: date
 			};
 		});
-		console.log(user);
 		// 회원정보 등록
-		// router.push('/');
+		fetch("http://localhost:8080/api/members/info", {
+			method: "POST",
+			body: JSON.stringify({
+				memberCode: "44HD16",
+				nickname: user.me.name,
+				age: user.me.age,
+				gender: user.me.gender
+			})
+
+		});
+
+		router.push('/');
 	};
 	const onClickSpan = (name: string) => {
 		document.getElementById(name)?.click();
 	};
 	return (
-		<div className="flex flex-col justify-between h-[100vh]">
+		<div className="m-[0_20px_22px] h-[100dvh] flex flex-col justify-between">
 			<div>
 				<div className="text-[14px] mb-[40px]">
 					<p className="text-[24px] font-bold leading-[32px] pb-[10px]">
