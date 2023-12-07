@@ -3,20 +3,21 @@
 import React, {useEffect, useState} from 'react';
 import Image from "next/image";
 import loveImage from "../../public/main/love.png";
-import zeroImage from "../../public/main/0.png";
-import 언짢음 from "../../public/main/emotion/언짢음.png";
-import placeImage from "../../public/main/place.png";
 import wariImage from '../../public/main/wari.png';
 import {useRouter} from "next/navigation";
 import Activity from "@/_component/mypage/main/activity";
 import Emotion from "@/_component/mypage/main/emotion";
 import Location from "@/_component/mypage/main/location";
+import {useRecoilState} from "recoil";
+import {coupleDataState, userDataState} from "@/recoil/atoms";
 
 type propsType = {};
 
 
 export default function MainComponent(props: propsType) {
 	const [warning, setWarning] = useState(false);
+	const [userData, setUserData] = useRecoilState(userDataState);
+	const [coupleData, setCoupleData] = useRecoilState(coupleDataState);
 	const router = useRouter();
 
 
@@ -30,13 +31,28 @@ export default function MainComponent(props: propsType) {
 					'Content-Type': 'application/json'
 				}
 			}).then(async (res) => {
-				console.log(await res.json());
+				const data = await res.json();
+				setUserData(data);
+			});
+		};
+
+		const getCoupleData = async () => {
+			await fetch('api/couples/info/ASDFGH', {
+				method: 'GET',
+				headers: {
+					'Authorization': `Bearer ${userToken}`,
+					'Content-Type': 'application/json'
+				}
+			}).then(async (res) => {
+				const data = await res.json();
+				setCoupleData(data);
 			});
 		};
 		if (!userToken) {
 			router.push('/login');
 		} else {
-			const data = getUserData();
+			getUserData();
+			getCoupleData();
 		}
 	}, []);
 
@@ -46,7 +62,6 @@ export default function MainComponent(props: propsType) {
 	};
 
 	const closePopup = () => {
-		console.log('hi');
 		setWarning(false);
 		document.body.style.overflow = "unset";
 	};
@@ -54,9 +69,9 @@ export default function MainComponent(props: propsType) {
 		<div className="w-full relative h-full">
 			<div className="flex flex-col items-end justify-end pb-[40px]">
 				<div className="flex items-center text-[12px] font-bold">
-					<p>유저1</p>
+					<p>{userData.nickname}</p>
 					<Image className="" alt="하트" src={loveImage} width={24} height={24}/>
-					<p>유저2</p>
+					<p>{coupleData.nickname}</p>
 				</div>
 				<div className="flex items-center text-[12px] text-center relative">
 					<div>

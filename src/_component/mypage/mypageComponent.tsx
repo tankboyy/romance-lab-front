@@ -3,12 +3,14 @@ import Image from "next/image";
 import loveImage from "../../../public/main/love.png";
 import loginImage from "../../../public/login/icon.png";
 import InputComponent2 from "../free/InputComponent2";
+import {useRecoilState} from "recoil";
+import {coupleDataState, userDataState} from "@/recoil/atoms";
 
 type propsType = {};
 
 export default function MypageComponent(props: propsType) {
-	const [nick, setNick] = useState("");
-	const [age, setAge] = useState("");
+	const [userData, setUserData] = useRecoilState(userDataState);
+	const [coupleData, setCoupleData] = useRecoilState(coupleDataState);
 
 	return (
 		<div className="">
@@ -125,7 +127,7 @@ export default function MypageComponent(props: propsType) {
 				<div className="flex flex-col items-center pb-[62px]">
 					<em className="text-[12px]">우리가 사랑한지 <em className="text-[13px] font-bold">101</em>일 째</em>
 					<div className="flex items-center text-[16px] font-bold">
-						<p>유저1</p>
+						<p>{userData.nickname}</p>
 						<Image className="" alt="하트" src="/main/love2.png" width={36} height={36}/>
 						<p>유저2</p>
 					</div>

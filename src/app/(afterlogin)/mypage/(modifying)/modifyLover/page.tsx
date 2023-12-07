@@ -1,18 +1,28 @@
 'use client';
 
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Image from "next/image";
 import InputComponent2 from "../../../../../_component/free/InputComponent2";
+import {useRecoilState, useRecoilValue} from "recoil";
+import {coupleDataState} from "@/recoil/atoms";
+import useUpdateUser from '@/hooks/useUpdateUser';
 
 type propsType = {};
 
 export default function Page(props: propsType) {
 	const [nick, setNick] = useState("");
-	const [age, setAge] = useState("");
+	const [age, setAge] = useState(0);
 	const [gender, setGender] = useState("");
 	const onClickSpan = (name: string) => {
 		document.getElementById(name)?.click();
 	};
+	useUpdateUser();
+	const [data, setData] = useRecoilState(coupleDataState);
+
+	useEffect(() => {
+		setNick(data.nickname);
+		setAge(data.age);
+	}, []);
 
 	return (
 		<div className="flex flex-col h-full p-[20px] pb-[70px]">
@@ -55,8 +65,6 @@ export default function Page(props: propsType) {
 										</div>
 										<span className="ml-[4px] cursor-pointer" onClick={() => onClickSpan('girl')}
 										>여성</span>
-
-
 									</div>
 								</div>
 							</div>
