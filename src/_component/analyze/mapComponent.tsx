@@ -24,7 +24,6 @@ export default function MapComponent({onChangePlace}: {
 				if (!info.replace(/^\s+|\s+$/g, '')) return;
 				ps.keywordSearch(info, (data, status, _pagination) => {
 					if (status === kakao.maps.services.Status.OK) {
-						console.log(data);
 						setSearchList(data);
 					}
 				});

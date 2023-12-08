@@ -1,4 +1,5 @@
 import {atom} from "recoil";
+import PlacesSearchResultItem = kakao.maps.services.PlacesSearchResultItem;
 
 export const userState = atom({
 	key: 'userState',
@@ -15,6 +16,20 @@ export const userState = atom({
 		},
 		date: ''
 	}
+});
+
+export interface TimelineListType {
+	title: string;
+	place: PlacesSearchResultItem | undefined;
+	text: string;
+	textClassify: string;
+	selectCouple: string;
+	selectType: string;
+}
+
+export const timelineListState = atom<TimelineListType[]>({
+	key: 'timelineListState',
+	default: [],
 });
 
 export const userDataState = atom({

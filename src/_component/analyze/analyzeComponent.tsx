@@ -9,6 +9,9 @@ import Link from "next/link";
 import MapComponent from "@/_component/analyze/mapComponent";
 import PlacesSearchResultItem = kakao.maps.services.PlacesSearchResultItem;
 import Spinner from "@/_component/free/spinner";
+import {timelineListState, TimelineListType} from "@/recoil/atoms";
+import useUpdateTimelineList from '@/hooks/useUpdateTimelineList';
+import {useSetRecoilState} from "recoil";
 
 export default function AnalyzeComponent() {
 	const [title, setTitle] = useState("");
@@ -20,6 +23,7 @@ export default function AnalyzeComponent() {
 	const [clear, setClear] = useState(false);
 	const [open, setOpen] = useState(false);
 	const [spinOpen, setSpinOpen] = useState(false);
+	const setTimeLineList = useSetRecoilState(timelineListState);
 	const router = useRouter();
 
 	const onChangePlace = (placeData: PlacesSearchResultItem | "") => {
@@ -31,19 +35,26 @@ export default function AnalyzeComponent() {
 		setOpen(false);
 	};
 
+
 	useEffect(() => {
 		if (title && selectType && text) {
 			if (text.length < 500 || text.length > 3000) return;
 			if (selectType === "직접입력" ? textClassify.length !== 0 : false) return;
-			console.log('test');
 			setClear(true);
 		} else setClear(false);
 
 	}, [selectCouple, title, selectType, textClassify, text]);
 
-	function handleSubmit() {
+	async function handleSubmit() {
 		setSpinOpen(prev => !prev);
-		// router.push("/timeline/1230049");
+		const timelineData: TimelineListType = {
+			title, place, text, textClassify, selectCouple, selectType
+		};
+		setTimeout(() => {
+			setTimeLineList(prev => [...prev, timelineData]);
+			setSpinOpen(prev => !prev);
+			router.push("/timeline/1230049");
+		}, 1500);
 	}
 
 	useEffect(() => {
@@ -106,7 +117,6 @@ export default function AnalyzeComponent() {
 								onClick={() => setOpen(true)}
 							>
 								{place ? <p>{place.place_name}</p> : <p className="text-[#AAA]">연인과 함께했던 장소를 입력해주세요 (선택)</p>}
-
 							</div>
 						</div>
 					</div>
