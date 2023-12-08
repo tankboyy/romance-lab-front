@@ -25,7 +25,7 @@ export default function InputComponent(props: propsType) {
 						id="customTextArea"
 						placeholder={props.placeHolder && props.placeHolder}
 						value={props.inputData?.data}
-						className="scroll-pl-14 w-full pr-10 resize-none leading-[22px] h-[400px] focus:outline-none text-[12px]"
+						className="w-full resize-none leading-[22px] h-[400px] focus:outline-none text-[12px]"
 						onChange={(value) => props.inputData?.setData(value.target.value)}
 					/>
 					<div className="absolute bottom-0 pb-[40px] left-[6px]">

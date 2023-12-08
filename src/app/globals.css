@@ -318,19 +318,16 @@ input::-webkit-inner-spin-button {
     }
 
     #customTextArea::-webkit-scrollbar {
-
+        width: 2px;
     }
 
     #customTextArea::-webkit-scrollbar-thumb {
-        width: 2px;
         height: 299px;
         background-color: #AAAAAA;
     }
 
     #customTextArea::-webkit-scrollbar-track {
-        /*background: white;*/
-        /*border: 8px solid transparent;*/
-
+        background: transparent;
     }
 
 }
