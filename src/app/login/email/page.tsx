@@ -10,7 +10,7 @@ import BackNav from "@/_component/free/backNav";
 type propsType = {};
 
 export default function Page(props: propsType) {
-	const [step, setStep] = useState<"회원가입" | "로그인">("회원가입");
+	const [step, setStep] = useState<"회원가입" | "로그인">("로그인");
 
 	return (
 		<main className="p-[20px]">
