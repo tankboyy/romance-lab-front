@@ -46,6 +46,11 @@ export default function AnalyzeComponent() {
 		// router.push("/timeline/1230049");
 	}
 
+	useEffect(() => {
+		if (open) document.body.style.overflow = "hidden";
+		else document.body.style.overflow = "auto";
+	}, [open]);
+
 	return (
 		<div className="pt-[10px]">
 			{open && <MapComponent onChangePlace={onChangePlace}/>}

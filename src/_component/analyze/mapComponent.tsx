@@ -36,7 +36,7 @@ export default function MapComponent({onChangePlace}: {
 
 
 	return (
-		<div>
+		<div className="">
 			<div className="bg-[rgba(255,255,255,0.8)] fixed left-0 top-0 w-full h-full z-20 cursor-pointer"
 				// onClick={() => closePopup()}
 			>
@@ -58,25 +58,29 @@ export default function MapComponent({onChangePlace}: {
 						장소 검색 결과
 					</div>
 					{!info ? <div className="pt-[50px] text-[14px] text-center">
-						장소를 검색해주세요
-					</div> : searchList?.map((item) => (
-						<div
-							className="pr-[10px] w-full h-[50px] flex justify-between items-center py-[20px] border-solid border-b-[1px] group border-b-gray-100 hover:bg-gray-200"
-							onClick={() => onChangePlace(item)}
-						>
-							<p className="flex flex-col px-[10px] justify-center text-[14px] w-4/6">
-								<em>
-									{item.place_name}
-								</em>
-								<em className="text-[12px] text-[#aaa] font-bold mt-[5px]">
-									{item.address_name}
-								</em>
-							</p>
-							<button
-								className="h-[30px] border-solid border-[1px] p-[10px] text-[12px] group-hover:border-[#aaa] flex items-center">선택
-							</button>
+							장소를 검색해주세요
+						</div> :
+						<div className="max-h-[390px] overflow-auto">
+							{searchList?.map((item) => (
+								<div
+									className="pr-[10px] w-full h-[50px] flex justify-between items-center py-[20px] border-solid border-b-[1px] group border-b-gray-100 hover:bg-gray-200"
+									onClick={() => onChangePlace(item)}
+								>
+									<p className="flex flex-col px-[10px] justify-center text-[14px] w-4/6">
+										<em>
+											{item.place_name}
+										</em>
+										<em className="text-[12px] text-[#aaa] font-bold mt-[5px]">
+											{item.address_name}
+										</em>
+									</p>
+									<button
+										className="h-[30px] border-solid border-[1px] p-[10px] text-[12px] group-hover:border-[#aaa] flex items-center">선택
+									</button>
+								</div>
+							))}
 						</div>
-					))}
+					}
 				</div>
 			</div>
 		</div>
