@@ -8,6 +8,7 @@ import {timelineListState, TimelineListType} from "@/recoil/atoms";
 import {useRouter} from "next/navigation";
 import Timelines from "@/_component/timeline/timelines";
 import {log} from "util";
+import NotAnalyze from "@/_component/timeline/notAnalyze";
 
 type propsType = {};
 
@@ -22,14 +23,18 @@ export default function Page(props: propsType) {
 						<em className="text-[24px] pb-[10px]">타임라인</em>
 						<em className="font-normal leading-[24px] text-[14px]">이번주에 분석한 텍스트들을 <br/>모아볼 수 있어요.</em>
 					</p>
-					<div className="flex flex-col items-center">
-						<Image src="/main/emotion/언짢음.png" alt="언짢음" className="pb-[18px]" width={74} height={74}/>
-						<p className="text-[13px] text-center leading-[20px]">
-							이번 주에 가장 많이 분석된 감정은 <br/>
-							<em className="font-bold text-[16px]">언짢음</em>
-							이에요!
-						</p>
-					</div>
+					{timelineList.length === 0 ?
+						<NotAnalyze/>
+						:
+						<div className="flex flex-col items-center">
+							<Image src="/main/emotion/언짢음.png" alt="언짢음" className="pb-[18px]" width={74} height={74}/>
+							<p className="text-[13px] text-center leading-[20px]">
+								이번 주에 가장 많이 분석된 감정은 <br/>
+								<em className="font-bold text-[16px]">언짢음</em>
+								이에요!
+							</p>
+						</div>
+					}
 					<div>
 						<p
 							className="pb-[6px] items-center text-[14px] border-solid border-black border-b-[1px] mb-[10px] flex justify-between">
