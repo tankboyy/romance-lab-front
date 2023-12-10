@@ -10,6 +10,7 @@ type propsType = {
 		setData: any
 	}
 	checks?: { reg: RegExp, str: string }[]
+	readonly?: boolean
 };
 
 
@@ -24,6 +25,7 @@ export default function InputComponent(props: propsType) {
 					<textarea
 						id="customTextArea"
 						placeholder={props.placeHolder && props.placeHolder}
+						readOnly={props.readonly}
 						value={props.inputData?.data}
 						className="w-full resize-none leading-[22px] h-[400px] focus:outline-none text-[12px]"
 						onChange={(value) => props.inputData?.setData(value.target.value)}

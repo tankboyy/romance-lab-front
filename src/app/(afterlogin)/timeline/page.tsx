@@ -1,13 +1,19 @@
 'use client';
 
-import React, {useState} from 'react';
+import React from 'react';
 import Image from "next/image";
-import {useRouter} from "next/navigation";
 import Link from "next/link";
+import {useRecoilState} from "recoil";
+import {timelineListState, TimelineListType} from "@/recoil/atoms";
+import {useRouter} from "next/navigation";
+import Timelines from "@/_component/timeline/timelines";
+import {log} from "util";
 
 type propsType = {};
 
 export default function Page(props: propsType) {
+	const [timelineList, setTimelineList] = useRecoilState(timelineListState);
+	const router = useRouter();
 	return (
 		<main className="p-[20px] pb-[50px] h-full">
 			<div className="pt-[10px]">
@@ -30,62 +36,26 @@ export default function Page(props: propsType) {
 							<em className="leading-[24px]">분석결과</em>
 							<Link href="/timeline/all" className="text-[11px] underline">전체 기록 보기</Link>
 						</p>
-
-						<div className="flex border-b-[1px] border-solid border-[#E2E2E2] items-center py-[16px]">
-							<div className="mx-[10px] min-w-[44px]">
-								<Image src="/main/emotion/언짢음.png" alt="언짢음" width={44} height={44}/>
+						{timelineList.length === 0 ?
+							<div className="flex flex-col items-center text-center pt-[40px] space-y-[14px]">
+								<span className="text-[13px] leading-[20px]">
+									이번 주에 분석된 텍스트 기록이 없어요. <br/>
+									지금 텍스트를 분석하러 가볼까요?
+								</span>
+								<button
+									className="bg-[#3668EA] rounded-[5px] w-[100px] h-[24px] text-[11px] font-bold leading-[16px] text-[#FFF]"
+									onClick={() => router.push('/analysis')}
+								>
+									분석하러 가기
+								</button>
 							</div>
-							<p className="space-y-[8px] w-full">
-								<em className="text-[12px] leading-[18px]">유저1 (나)님이 편지를 분석했어요.</em><br/>
-								<em className="text-[11px] text-[#AAA]">2023.09.07</em>
-							</p>
-						</div>
-
-
-						<div className="flex border-b-[1px] border-solid border-[#E2E2E2] items-center py-[16px]">
-							<div className="mx-[10px] min-w-[44px]">
-								<Image src="/main/emotion/언짢음.png" alt="언짢음" width={44} height={44}/>
+							:
+							<div>
+								{timelineList.map((timeline: TimelineListType, i) => (
+									<Timelines {...timeline} key={i}/>
+								))}
 							</div>
-							<p className="space-y-[8px] w-full">
-								<em className="text-[12px]">유저2 (연인)님이 일기를 분석했어요.</em><br/>
-								<div className="justify-between flex">
-									<em className="text-[11px] text-[#AAA]">2023.09.07</em>
-									<Link href="/timeline/1234/template" className="text-[11px] underline">편지템플릿 보기</Link>
-								</div>
-							</p>
-						</div>
-						<div className="flex border-b-[1px] border-solid border-[#E2E2E2] items-center py-[16px]">
-							<div className="mx-[10px] min-w-[44px]">
-								<Image src="/main/emotion/언짢음.png" alt="언짢음" width={44} height={44}/>
-							</div>
-							<p className="space-y-[8px] w-full">
-								<em className="text-[12px]">유저2유저2유저2유저2 (연인)님이 가족모임기록을 분석했어요.</em><br/>
-								<div className="justify-between flex">
-									<em className="text-[11px] text-[#AAA]">2023.09.07</em>
-									<Link href="/timeline/1234/template" className="text-[11px] underline">편지템플릿 보기</Link>
-
-								</div>
-							</p>
-						</div>
-						<div className="flex border-b-[1px] border-solid border-[#E2E2E2] items-center py-[16px]">
-
-							<div className="mx-[10px] min-w-[44px]">
-								<Image src="/main/emotion/언짢음.png" alt="언짢음" width={44} height={44}/>
-							</div>
-							<p className="space-y-[8px] w-full">
-								<em className="text-[12px]">유저1 (나)님이 채팅를 분석했어요.</em><br/>
-								<em className="text-[11px] text-[#AAA]">2023.09.07</em>
-							</p>
-						</div>
-						<div className="flex items-center py-[16px]">
-							<div className="mx-[10px] min-w-[44px]">
-								<Image src="/main/emotion/언짢음.png" alt="언짢음" width={44} height={44}/>
-							</div>
-							<p className="space-y-[8px] w-full">
-								<em className="text-[12px]">유저1 (나)님이 편지를 분석했어요.</em><br/>
-								<em className="text-[11px] text-[#AAA]">2023.09.07</em>
-							</p>
-						</div>
+						}
 					</div>
 
 				</div>

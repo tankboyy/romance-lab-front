@@ -2,15 +2,20 @@
 
 import React, {useState} from 'react';
 import Image from "next/image";
-import TextInputComponent from '../../../../_component/timeline/textInputComponent';
+
 import Link from "next/link";
+import {useRecoilValue} from "recoil";
+import {timelineListState} from "@/recoil/atoms";
+import TextInputComponent from '@/_component/free/textInputComponent';
 
 type propsType = {};
 
 export default function Page(props: propsType) {
 	const [text, setText] = useState("");
+	const timelineList = useRecoilValue(timelineListState);
+	console.log(timelineList);
 	return (
-		<div className="max-w-[420px] max-h-max min-h-[100vh] bg-white flex flex-col w-[100vw] p-[20px] pb-[50px]">
+		<main className="p-[20px] pb-[50px] h-full">
 			<div className="pt-[10px] pb-[60px]">
 				<p className="text-[24px] leading-[32px] font-bold pb-[10px]">
 					텍스트 분석결과
@@ -23,14 +28,15 @@ export default function Page(props: propsType) {
 			</div>
 			<div className="flex flex-col items-center justify-center pb-[45px]">
 				<p className="text-[14px] leading-[24px] items-center pb-[6px]">
-					이 텍스트는 <em className="text-[16px] font-bold">연인1</em>이 분석 요청한 편지에요. <br/>
+					이 텍스트는 <em className="text-[16px] font-bold">{timelineList[0]?.selectCouple}</em>이 분석 요청한 편지에요. <br/>
 				</p>
 				<p className="leading-[11px] text-[11px] ">
 					분석 날짜 : 2023.09.07
 				</p>
 			</div>
 			<div className="pb-[28px]">
-				<TextInputComponent readonly={true} failText="" inputData={{data: text, setData: setText}} successText=""
+				<TextInputComponent readonly={true} failText="" inputData={{data: timelineList[0]?.text, setData: setText}}
+														successText=""
 														title="분석된 텍스트"/>
 			</div>
 			<div>
@@ -124,7 +130,7 @@ export default function Page(props: propsType) {
 							<p className="pb-[20px] leading-[20px]">
 								이 편지와 연결된 장소는
 								<em className="font-bold">
-									{"카카오 판교오피스"}
+									{" " + timelineList[0]?.place?.place_name}
 								</em>에요.
 							</p>
 							<p className="flex flex-col text-[12px] text-center">
@@ -166,6 +172,6 @@ export default function Page(props: propsType) {
 					</div>
 				</div>
 			</div>
-		</div>
+		</main>
 	);
 }

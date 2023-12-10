@@ -5,13 +5,12 @@ import InputComponent from "../free/InputComponent";
 import SelectComponent from "./selectComponent";
 import TextInputComponent from "../free/textInputComponent";
 import {useRouter} from "next/navigation";
-import Link from "next/link";
 import MapComponent from "@/_component/analyze/mapComponent";
 import PlacesSearchResultItem = kakao.maps.services.PlacesSearchResultItem;
 import Spinner from "@/_component/free/spinner";
 import {timelineListState, TimelineListType} from "@/recoil/atoms";
-import useUpdateTimelineList from '@/hooks/useUpdateTimelineList';
 import {useSetRecoilState} from "recoil";
+import dayjs from "dayjs";
 
 export default function AnalyzeComponent() {
 	const [title, setTitle] = useState("");
@@ -48,7 +47,7 @@ export default function AnalyzeComponent() {
 	async function handleSubmit() {
 		setSpinOpen(prev => !prev);
 		const timelineData: TimelineListType = {
-			title, place, text, textClassify, selectCouple, selectType
+			title, place, text, textClassify, selectCouple, selectType, createAt: dayjs().format("YYYY.MM.DD")
 		};
 		setTimeout(() => {
 			setTimeLineList(prev => [...prev, timelineData]);
