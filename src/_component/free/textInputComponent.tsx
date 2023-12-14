@@ -32,7 +32,7 @@ export default function InputComponent(props: propsType) {
 					/>
 					<div className="absolute bottom-0 pb-[40px] left-[6px]">
 						<p
-							className="text-[#E84E4E] text-[12px]">{props.inputData.data.length === 0 ? "텍스트가 입력되지 않았어요" : props.inputData.data.length < 500 ? "최소 500자 이상 입력해주세요" : props.inputData.data.length > 3000 ? "최대 3000자 까지만 입력할 수 있어요" : ""}</p>
+							className="text-[#E84E4E] text-[12px]">{props.inputData?.data.length === 0 ? "텍스트가 입력되지 않았어요" : props.inputData?.data.length < 500 ? "최소 500자 이상 입력해주세요" : props.inputData.data.length > 3000 ? "최대 3000자 까지만 입력할 수 있어요" : ""}</p>
 					</div>
 				</div>
 			</div>

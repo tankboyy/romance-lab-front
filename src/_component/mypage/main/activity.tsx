@@ -22,7 +22,7 @@ export default function Activity() {
 					<em className="text-[#AAA] text-[11px] leading-[16px] pb-[10px]">조금만 더 분석하러 가 볼까요?</em>
 					<button
 						className="bg-[#3668EA] rounded-[5px] w-[100px] h-[24px] text-[11px] font-bold leading-[16px] text-[#FFF]"
-						onClick={() => router.push('/analysis')}
+						onClick={() => router.push('/analyze')}
 					>
 						분석하러 가기
 					</button>

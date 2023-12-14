@@ -3,6 +3,7 @@
 import React, {useState} from 'react';
 import Image from "next/image";
 import BackNav from "@/_component/free/backNav";
+import {useRouter} from "next/navigation";
 
 type propsType = {};
 
@@ -11,6 +12,8 @@ export default function Page(props: propsType) {
 	const [modalOpen, setModalOpen] = useState(false);
 	const [bgC, setBgC] = useState("red-50");
 	const [bgG, setBgG] = useState(false);
+	const router = useRouter();
+
 
 	const onChangeBgC = (bgc: string) => {
 		setBgC(bgc);
@@ -25,6 +28,17 @@ export default function Page(props: propsType) {
 		setModalOpen(false);
 		document.body.style.overflow = "unset";
 	};
+
+	async function onClickReCreate() {
+
+		//TODO: 다시 만들기 클릭시 원래 존재하던 템플릿은 삭제하는 코드 작성
+		// await fetch('')
+
+		// 삭제후
+		const completeid = 'qwer';
+		router.push(`/timeline/${completeid}/template/create`);
+
+	}
 
 	return (
 		<main className="h-full px-[20px]">
@@ -44,6 +58,7 @@ export default function Page(props: propsType) {
             </p>
             <div className="flex">
               <button
+                onClick={onClickReCreate}
                 className="mr-[10px] w-[90px] h-[24px] bg-[#3668EA] rounded-[5px] text-white text-[11px] font-bold">다시
                 만들기
               </button>

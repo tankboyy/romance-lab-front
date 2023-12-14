@@ -35,7 +35,8 @@ export default function Page(props: propsType) {
 				</p>
 			</div>
 			<div className="pb-[28px]">
-				<TextInputComponent readonly={true} failText="" inputData={{data: timelineList[0]?.text, setData: setText}}
+				<TextInputComponent readonly={true} failText=""
+														inputData={{data: timelineList[0] ? timelineList[0].text : text, setData: setText}}
 														successText=""
 														title="분석된 텍스트"/>
 			</div>
@@ -137,7 +138,10 @@ export default function Page(props: propsType) {
 								<em className="leading-[20px]">
 									이 장소를 타임라인에서 지도와 함께 볼 수 있어요.
 								</em>
-								<Link href="/timeline/map" className="underline text-[11px] pt-[6px] pb-[14px]">
+								<Link href={{
+									pathname: "/timeline/map",
+									query: {x: timelineList[0]?.place?.x, y: timelineList[0]?.place?.y}
+								}} className="underline text-[11px] pt-[6px] pb-[14px]">
 									지도로 보기
 								</Link>
 								<em className="text-[#AAA] leading-[20px] text-[11px]">이 장소는 텍스트를 분석요청할 때 함께 제출된 장소에요.</em>

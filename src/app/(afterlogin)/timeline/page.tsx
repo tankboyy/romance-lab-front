@@ -49,7 +49,7 @@ export default function Page(props: propsType) {
 								</span>
 								<button
 									className="bg-[#3668EA] rounded-[5px] w-[100px] h-[24px] text-[11px] font-bold leading-[16px] text-[#FFF]"
-									onClick={() => router.push('/analysis')}
+									onClick={() => router.push('/analyze')}
 								>
 									분석하러 가기
 								</button>

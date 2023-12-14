@@ -8,9 +8,10 @@ import {useRouter} from "next/navigation";
 import MapComponent from "@/_component/analyze/mapComponent";
 import PlacesSearchResultItem = kakao.maps.services.PlacesSearchResultItem;
 import Spinner from "@/_component/free/spinner";
-import {timelineListState, TimelineListType} from "@/recoil/atoms";
-import {useSetRecoilState} from "recoil";
+import {coupleDataState, timelineListState, TimelineListType, userDataState} from "@/recoil/atoms";
+import {useRecoilValue, useSetRecoilState} from "recoil";
 import dayjs from "dayjs";
+import UseUpdateUser from "@/hooks/useUpdateUser";
 
 export default function AnalyzeComponent() {
 	const [title, setTitle] = useState("");
@@ -33,6 +34,11 @@ export default function AnalyzeComponent() {
 		setPlace(placeData);
 		setOpen(false);
 	};
+
+	UseUpdateUser();
+
+	const couple = useRecoilValue(coupleDataState);
+	const user = useRecoilValue(userDataState);
 
 
 	useEffect(() => {
@@ -80,7 +86,7 @@ export default function AnalyzeComponent() {
 			<div className="space-y-[22px]">
 				<div className="pb-[12px]">
 					<SelectComponent inputData={{data: selectCouple, setData: setSelectCouple}} title="텍스트를 쓴 사람"
-													 list={['연인1', '연인2']} successText="" failText=""/>
+													 list={[user.nickname, couple.nickname]} successText="" failText=""/>
 				</div>
 				<InputComponent inputData={{data: title, setData: setTitle}} title="제목" successText=""
 												max={20}

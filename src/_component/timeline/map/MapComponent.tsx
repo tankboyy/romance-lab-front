@@ -2,7 +2,10 @@ import React, {useEffect, useState} from 'react';
 import Image from "next/image";
 import Link from "next/link";
 
-type propsType = {};
+type propsType = {
+	x?: string,
+	y?: string,
+};
 
 
 export default function MapComponent(props: propsType) {
@@ -17,39 +20,38 @@ export default function MapComponent(props: propsType) {
 			window.kakao.maps.load(() => {
 				const container = document.getElementById("map");
 				const options = {
-					center: new window.kakao.maps.LatLng(33.5563, 126.79581),
+					center: new window.kakao.maps.LatLng(props.x ? parseInt(props.x) : 37.1591650976871, props.y ? parseInt(props.y) : 127.062679988373),
 					level: 2,
 				};
 
-				// @ts-ignore
 				const map = new window.kakao.maps.Map(container, options);
 
-				// 기본값
+				// // 기본값
 				const marker = new window.kakao.maps.Marker({
-					position: new window.kakao.maps.LatLng(33.55635, 126.795841),
+					position: new window.kakao.maps.LatLng(props.x ? parseInt(props.x) : 37.1591650976871, props.y ? parseInt(props.y) : 127.062679988373),
 					image: new window.kakao.maps.MarkerImage('/timeline/marker.png', new kakao.maps.Size(40, 40)),
 					clickable: true,
 				});
-
-				// 기본값 내 위치로
-				if (window.navigator.geolocation) {
-					navigator.geolocation.getCurrentPosition((position) => {
-						const lat = position.coords.latitude;
-						const lon = position.coords.longitude;
-						const locPosition = new kakao.maps.LatLng(lat, lon);
-						marker.setPosition(locPosition);
-					});
-				}
+				//
+				// // 기본값 내 위치로
+				// if (window.navigator.geolocation) {
+				// 	navigator.geolocation.getCurrentPosition((position) => {
+				// 		const lat = position.coords.latitude;
+				// 		const lon = position.coords.longitude;
+				// 		const locPosition = new kakao.maps.LatLng(lat, lon);
+				// 		marker.setPosition(locPosition);
+				// 	});
+				// }
 
 				marker.setMap(map);
-				window.kakao.maps.event.addListener(marker, 'click', () => {
-					setOpen((prev) => {
-						!prev ? marker.setImage(new window.kakao.maps.MarkerImage('/timeline/marker.png', new kakao.maps.Size(60, 60))) :
-							marker.setImage(new window.kakao.maps.MarkerImage('/timeline/marker.png', new kakao.maps.Size(40, 40)));
-						map.setCenter(marker.getPosition());
-						return !prev;
-					});
-				});
+				// window.kakao.maps.event.addListener(marker, 'click', () => {
+				// 	setOpen((prev) => {
+				// 		!prev ? marker.setImage(new window.kakao.maps.MarkerImage('/timeline/marker.png', new kakao.maps.Size(60, 60))) :
+				// 			marker.setImage(new window.kakao.maps.MarkerImage('/timeline/marker.png', new kakao.maps.Size(40, 40)));
+				// 		map.setCenter(marker.getPosition());
+				// 		return !prev;
+				// 	});
+				// });
 			});
 
 		};
@@ -60,6 +62,8 @@ export default function MapComponent(props: propsType) {
 	return (
 		<div>
 			<div id="map" className="w-[calc(100%+40px)] h-[calc(100vh-40px)] ml-[-20px] mt-[-30px]"/>
+
+
 			{!open ?
 				<div className="w-full max-w-[420px] mx-auto left-0 right-0 bottom-[50px] fixed z-10">
 					<div className="flex justify-end pr-[20px] pb-[10px]">
